@@ -1,5 +1,4 @@
-Ah, you need static HTML! Let me convert the React app to pure HTML/CSS/JavaScript that you can upload anywhere:
-Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE html>
+"<!DOCTYPE html>
 <html lang=\"en\">
 <head>
     <meta charset=\"UTF-8\">
@@ -7,8 +6,7 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
     <title>kura - Curated Wellness Marketplace</title>
     <meta name=\"description\" content=\"The first curated marketplace for wellness therapies. Discover, book, and pay — curated, verified, global.\">
     
-    <!-- Google Fonts -->
-    <link href=\"https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\">
+    <link href=\"https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\">
     
     <style>
         * {
@@ -22,8 +20,12 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             --cream: #F5EEE4;
             --gold: #C8A98A;
             --white: #FFFFFF;
-            --serif: 'Cormorant Garamond', serif;
-            --sans: 'Inter', sans-serif;
+            --serif: 'Playfair Display', serif;
+            --sans: 'DM Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -31,7 +33,14 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             overflow-x: hidden;
         }
 
-        /* Language Toggle */
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
+            margin: 0 auto;
+            max-width: 600px;
+        }
+
         .language-toggle {
             position: fixed;
             top: 2rem;
@@ -59,7 +68,6 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             box-shadow: 0 6px 16px rgba(200, 169, 138, 0.3);
         }
 
-        /* Hero Section */
         .hero-section {
             position: relative;
             min-height: 100vh;
@@ -80,10 +88,31 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             pointer-events: none;
         }
 
+        .botanical-svg {
+            position: absolute;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .botanical-svg.left {
+            left: -5%;
+            top: 20%;
+            width: 300px;
+            height: 300px;
+        }
+
+        .botanical-svg.right {
+            right: -5%;
+            bottom: 20%;
+            width: 350px;
+            height: 350px;
+            transform: rotate(180deg);
+        }
+
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 900px;
+            max-width: 1000px;
             text-align: center;
             animation: fadeInUp 1s ease-out;
         }
@@ -108,7 +137,7 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
         .logo-text {
             font-family: var(--serif);
             font-size: 4rem;
-            font-weight: 300;
+            font-weight: 400;
             color: var(--cream);
             letter-spacing: 0.1em;
         }
@@ -137,19 +166,21 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
 
         .hero-headline {
             font-family: var(--serif);
-            font-size: 3.5rem;
-            font-weight: 400;
+            font-size: 4.5rem;
+            font-weight: 600;
             color: var(--cream);
-            line-height: 1.2;
+            line-height: 1.15;
             margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
         }
 
         .hero-subhead {
             font-family: var(--sans);
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             color: var(--cream);
             opacity: 0.9;
             margin-bottom: 3rem;
+            font-weight: 400;
         }
 
         .cta-button {
@@ -170,7 +201,6 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             box-shadow: 0 10px 30px rgba(200, 169, 138, 0.3);
         }
 
-        /* Problem Section */
         .problem-section {
             background-color: var(--cream);
             padding: 8rem 2rem;
@@ -183,8 +213,8 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
 
         .section-title {
             font-family: var(--serif);
-            font-size: 3rem;
-            font-weight: 400;
+            font-size: 3.5rem;
+            font-weight: 600;
             color: var(--forest-green);
             text-align: center;
             margin-bottom: 4rem;
@@ -216,8 +246,8 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
         }
 
         .problem-title {
-            font-family: var(--sans);
-            font-size: 1.25rem;
+            font-family: var(--serif);
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--forest-green);
             margin-bottom: 1rem;
@@ -227,10 +257,9 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             font-family: var(--sans);
             color: var(--forest-green);
             opacity: 0.75;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        /* How It Works Section */
         .how-it-works-section {
             background-color: var(--white);
             padding: 8rem 2rem;
@@ -238,8 +267,8 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
 
         .section-title-dark {
             font-family: var(--serif);
-            font-size: 3rem;
-            font-weight: 400;
+            font-size: 3.5rem;
+            font-weight: 600;
             color: var(--forest-green);
             text-align: center;
             margin-bottom: 4rem;
@@ -259,15 +288,15 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
         .step-number {
             font-family: var(--serif);
             font-size: 4rem;
-            font-weight: 300;
+            font-weight: 400;
             color: var(--gold);
             margin-bottom: 1rem;
             opacity: 0.6;
         }
 
         .step-title {
-            font-family: var(--sans);
-            font-size: 1.5rem;
+            font-family: var(--serif);
+            font-size: 1.75rem;
             font-weight: 600;
             color: var(--forest-green);
             margin-bottom: 1rem;
@@ -277,13 +306,14 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             font-family: var(--sans);
             color: var(--forest-green);
             opacity: 0.7;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        /* Phone Mockup */
-        .phone-mockup-container {
+        .phone-mockups-container {
             display: flex;
             justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
             padding: 3rem 0;
         }
 
@@ -306,16 +336,122 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             padding: 3rem 1.25rem 1.25rem;
         }
 
+        .phone-screen.booking-screen {
+            background: var(--forest-green);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
         .phone-header-title {
             font-family: var(--serif);
             font-size: 1.75rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--forest-green);
         }
 
-        /* Therapist CTA Section */
-        .therapist-cta-section {
+        .booking-content {
+            flex: 1;
+            color: var(--cream);
+        }
+
+        .booking-therapist {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--cream);
+        }
+
+        .booking-service {
+            font-family: var(--sans);
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .booking-detail {
+            margin-bottom: 1.5rem;
+        }
+
+        .booking-label {
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .booking-value {
+            font-family: var(--sans);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .booking-price {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin: 2rem 0;
+        }
+
+        .confirm-button {
+            background-color: var(--gold);
+            color: var(--forest-green);
+            font-family: var(--sans);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1.25rem;
+            border-radius: 12px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .locations-section {
             background-color: var(--cream);
+            padding: 8rem 2rem;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .location-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(28, 43, 37, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(28, 43, 37, 0.08);
+        }
+
+        .location-number {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .location-name {
+            font-family: var(--serif);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--forest-green);
+        }
+
+        .therapist-cta-section {
+            background-color: var(--white);
             padding: 8rem 2rem;
         }
 
@@ -327,8 +463,8 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
 
         .therapist-cta-title {
             font-family: var(--serif);
-            font-size: 3rem;
-            font-weight: 400;
+            font-size: 3.5rem;
+            font-weight: 600;
             color: var(--forest-green);
             margin-bottom: 1.5rem;
         }
@@ -339,7 +475,7 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             color: var(--forest-green);
             opacity: 0.8;
             margin-bottom: 2.5rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .therapist-cta-button {
@@ -360,16 +496,15 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             box-shadow: 0 10px 30px rgba(28, 43, 37, 0.2);
         }
 
-        /* Waitlist Section */
         .waitlist-section {
-            background-color: var(--white);
+            background-color: var(--cream);
             padding: 8rem 2rem;
         }
 
         .waitlist-title {
             font-family: var(--serif);
-            font-size: 4rem;
-            font-weight: 400;
+            font-size: 4.5rem;
+            font-weight: 600;
             color: var(--forest-green);
             text-align: center;
             margin-bottom: 1rem;
@@ -428,7 +563,6 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             box-shadow: 0 8px 20px rgba(200, 169, 138, 0.3);
         }
 
-        /* Footer */
         .footer {
             background-color: var(--forest-green);
             padding: 3rem 2rem;
@@ -447,7 +581,7 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
         .footer-logo {
             font-family: var(--serif);
             font-size: 2rem;
-            font-weight: 300;
+            font-weight: 400;
             color: var(--cream);
             letter-spacing: 0.1em;
         }
@@ -471,7 +605,6 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             color: var(--gold);
         }
 
-        /* Toast Notification */
         .toast {
             position: fixed;
             bottom: 2rem;
@@ -484,6 +617,7 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             z-index: 1000;
             animation: slideIn 0.3s ease-out;
             display: none;
+            font-family: var(--sans);
         }
 
         .toast.show {
@@ -501,10 +635,9 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero-headline {
-                font-size: 2.5rem;
+                font-size: 2.75rem;
             }
             
             .logo-text {
@@ -513,7 +646,11 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             
             .section-title,
             .section-title-dark {
-                font-size: 2.25rem;
+                font-size: 2.5rem;
+            }
+            
+            .phone-mockups-container {
+                gap: 2rem;
             }
             
             .phone-frame {
@@ -539,22 +676,17 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             }
             
             .hero-headline {
-                font-size: 2rem;
+                font-size: 2.25rem;
             }
             
             .phone-frame {
-                width: 280px;
-                height: 560px;
+                width: 300px;
+                height: 600px;
             }
-        }
-
-        .hidden {
-            display: none;
         }
     </style>
 </head>
 <body>
-    <!-- Language Toggle -->
     <button class=\"language-toggle\" onclick=\"toggleLanguage()\" aria-label=\"Toggle language\">
         <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
             <path d=\"M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14.5 18h6\"/>
@@ -562,8 +694,13 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
         <span id=\"lang-toggle-text\">ES</span>
     </button>
 
-    <!-- Hero Section -->
     <section class=\"hero-section\">
+        <svg class=\"botanical-svg left\" viewBox=\"0 0 200 200\" fill=\"var(--cream)\">
+            <path d=\"M100,20 Q120,40 100,60 Q80,40 100,20 M100,60 Q120,80 100,100 Q80,80 100,60 M100,100 Q120,120 100,140 Q80,120 100,100 M100,140 Q120,160 100,180 Q80,160 100,140\"/>
+        </svg>
+        <svg class=\"botanical-svg right\" viewBox=\"0 0 200 200\" fill=\"var(--cream)\">
+            <path d=\"M100,20 Q120,40 100,60 Q80,40 100,20 M100,60 Q120,80 100,100 Q80,80 100,60 M100,100 Q120,120 100,140 Q80,120 100,100 M100,140 Q120,160 100,180 Q80,160 100,140\"/>
+        </svg>
         <div class=\"hero-content\">
             <div class=\"logo-container\">
                 <h1 class=\"logo-text\">kura</h1>
@@ -582,7 +719,8 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
         <div class=\"hero-texture\"></div>
     </section>
 
-    <!-- Problem Section -->
+    <div class=\"section-divider\"></div>
+
     <section class=\"problem-section\">
         <div class=\"section-container\">
             <h2 class=\"section-title\" data-en=\"Why wellness needs kura\" data-es=\"Por qué el bienestar necesita kura\">
@@ -624,7 +762,8 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
         </div>
     </section>
 
-    <!-- How It Works Section -->
+    <div class=\"section-divider\"></div>
+
     <section class=\"how-it-works-section\">
         <div class=\"section-container\">
             <h2 class=\"section-title-dark\" data-en=\"How kura works\" data-es=\"Cómo funciona kura\">How kura works</h2>
@@ -655,46 +794,120 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
                 </div>
             </div>
 
-            <div class=\"phone-mockup-container\">
+            <div class=\"phone-mockups-container\">
                 <div class=\"phone-frame\">
                     <div class=\"phone-screen\">
                         <h3 class=\"phone-header-title\" data-en=\"Your matches\" data-es=\"Tus coincidencias\">Your matches</h3>
-                        <p style=\"font-size: 0.875rem; color: var(--forest-green); opacity: 0.6; margin-top: 0.25rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(28, 43, 37, 0.1);\" data-en=\"4 verified practitioners in your area\" data-es=\"4 profesionales verificados en tu área\">
-                            4 verified practitioners in your area
+                        <p style=\"font-size: 0.875rem; color: var(--forest-green); opacity: 0.6; margin-top: 0.25rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(28, 43, 37, 0.1);\" data-en=\"5 verified practitioners in your area\" data-es=\"5 profesionales verificados en tu área\">
+                            5 verified practitioners in your area
                         </p>
                         <div style=\"font-size: 0.9rem; line-height: 1.4;\">
                             <div style=\"background: white; border: 1px solid rgba(28, 43, 37, 0.1); border-radius: 12px; padding: 1rem; margin-bottom: 1rem;\">
-                                <div style=\"font-weight: 600; margin-bottom: 0.25rem;\">Deep Tissue Massage</div>
-                                <div style=\"font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;\">María González</div>
+                                <div style=\"font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem;\">Therapeutic Massage</div>
+                                <div style=\"font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;\">Dr. Ana Herrera</div>
                                 <div style=\"display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;\">
-                                    <span>⭐ 4.9 (127)</span>
+                                    <span>⭐ 4.9 (156)</span>
                                     <span>📍 Polanco, CDMX</span>
                                 </div>
                                 <div style=\"display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;\">
                                     <span>⏱️ 90 min</span>
-                                    <span style=\"font-weight: 600;\">$850 MXN</span>
+                                    <span style=\"font-weight: 600;\">$1,200 MXN</span>
                                 </div>
                             </div>
                             <div style=\"background: white; border: 1px solid rgba(28, 43, 37, 0.1); border-radius: 12px; padding: 1rem; margin-bottom: 1rem;\">
-                                <div style=\"font-weight: 600; margin-bottom: 0.25rem;\">Reiki Healing Session</div>
-                                <div style=\"font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;\">Carlos Mendoza</div>
+                                <div style=\"font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem;\">Reflexology</div>
+                                <div style=\"font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;\">María González</div>
                                 <div style=\"display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;\">
                                     <span>⭐ 5.0 (89)</span>
-                                    <span>📍 Roma Norte, CDMX</span>
+                                    <span>📍 Tulum, Q.R.</span>
                                 </div>
                                 <div style=\"display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;\">
                                     <span>⏱️ 60 min</span>
-                                    <span style=\"font-weight: 600;\">$950 MXN</span>
+                                    <span style=\"font-weight: 600;\">$850 MXN</span>
+                                </div>
+                            </div>
+                            <div style=\"background: white; border: 1px solid rgba(28, 43, 37, 0.1); border-radius: 12px; padding: 1rem;\">
+                                <div style=\"font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem;\">Thai Massage</div>
+                                <div style=\"font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;\">Sofía Ruiz</div>
+                                <div style=\"display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;\">
+                                    <span>⭐ 4.8 (134)</span>
+                                    <span>📍 Roma Norte, CDMX</span>
+                                </div>
+                                <div style=\"display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;\">
+                                    <span>⏱️ 120 min</span>
+                                    <span style=\"font-weight: 600;\">$1,400 MXN</span>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class=\"phone-frame\">
+                    <div class=\"phone-screen booking-screen\">
+                        <div class=\"booking-content\">
+                            <div class=\"booking-therapist\">Dr. Ana Herrera</div>
+                            <div class=\"booking-service\">Therapeutic Massage</div>
+                            
+                            <div class=\"booking-detail\">
+                                <div class=\"booking-label\" data-en=\"Date\" data-es=\"Fecha\">Date</div>
+                                <div class=\"booking-value\">Friday, May 16, 2025</div>
+                            </div>
+                            
+                            <div class=\"booking-detail\">
+                                <div class=\"booking-label\" data-en=\"Time\" data-es=\"Hora\">Time</div>
+                                <div class=\"booking-value\">3:00 PM</div>
+                            </div>
+                            
+                            <div class=\"booking-detail\">
+                                <div class=\"booking-label\" data-en=\"Duration\" data-es=\"Duración\">Duration</div>
+                                <div class=\"booking-value\">90 minutes</div>
+                            </div>
+                            
+                            <div class=\"booking-detail\">
+                                <div class=\"booking-label\" data-en=\"Location\" data-es=\"Ubicación\">Location</div>
+                                <div class=\"booking-value\">Polanco, CDMX</div>
+                            </div>
+                            
+                            <div class=\"booking-price\">$1,200 MXN</div>
+                        </div>
+                        
+                        <button class=\"confirm-button\" data-en=\"Confirm Booking\" data-es=\"Confirmar Reserva\">Confirm Booking</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Therapist CTA Section -->
+    <div class=\"section-divider\"></div>
+
+    <section class=\"locations-section\">
+        <div class=\"section-container\">
+            <h2 class=\"section-title\" data-en=\"Coming Soon\" data-es=\"Próximamente\">
+                Coming Soon
+            </h2>
+            <div class=\"locations-grid\">
+                <div class=\"location-card\">
+                    <div class=\"location-number\">01</div>
+                    <div class=\"location-name\">Ciudad de México</div>
+                </div>
+                <div class=\"location-card\">
+                    <div class=\"location-number\">02</div>
+                    <div class=\"location-name\">Tulum</div>
+                </div>
+                <div class=\"location-card\">
+                    <div class=\"location-number\">03</div>
+                    <div class=\"location-name\">Tepoztlán</div>
+                </div>
+                <div class=\"location-card\">
+                    <div class=\"location-number\">04</div>
+                    <div class=\"location-name\">San Miguel de Allende</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class=\"section-divider\"></div>
+
     <section class=\"therapist-cta-section\">
         <div class=\"section-container\">
             <div class=\"therapist-cta-content\">
@@ -711,7 +924,8 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
         </div>
     </section>
 
-    <!-- Waitlist Section -->
+    <div class=\"section-divider\"></div>
+
     <section class=\"waitlist-section\" id=\"waitlist-section\">
         <div class=\"section-container\">
             <h2 class=\"waitlist-title\" data-en=\"Be first.\" data-es=\"Sé el primero.\">Be first.</h2>
@@ -736,7 +950,6 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class=\"footer\">
         <div class=\"footer-content\">
             <div class=\"footer-logo\">kura</div>
@@ -748,7 +961,6 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
         </div>
     </footer>
 
-    <!-- Toast Notification -->
     <div class=\"toast\" id=\"toast\"></div>
 
     <script>
@@ -758,7 +970,6 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
             currentLang = currentLang === 'en' ? 'es' : 'en';
             document.getElementById('lang-toggle-text').textContent = currentLang === 'en' ? 'ES' : 'EN';
             
-            // Update all elements with translations
             document.querySelectorAll('[data-en]').forEach(el => {
                 const text = el.getAttribute('data-' + currentLang);
                 if (el.tagName === 'INPUT') {
@@ -805,7 +1016,6 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
                 return;
             }
 
-            // Simulate form submission
             const btn = document.getElementById('waitlist-btn');
             const originalText = btn.textContent;
             btn.textContent = currentLang === 'en' ? 'Joining...' : 'Uniéndose...';
@@ -824,4 +1034,3 @@ Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE ht
     </script>
 </body>
 </html>"
-Observation: Create successful: /app/kura-landing-page.html
