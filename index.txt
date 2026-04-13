@@ -558,9 +558,14 @@
             white-space: nowrap;
         }
 
-        .waitlist-button:hover {
+        .waitlist-button:hover:not(:disabled) {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(200, 169, 138, 0.3);
+        }
+
+        .waitlist-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
         }
 
         .footer {
@@ -618,6 +623,8 @@
             animation: slideIn 0.3s ease-out;
             display: none;
             font-family: var(--sans);
+            font-size: 0.95rem;
+            max-width: 300px;
         }
 
         .toast.show {
@@ -966,7 +973,29 @@
     <script>
         let currentLang = 'en';
         
-        // REPLACE WITH YOUR GOOGLE APPS SCRIPT URL
+        // ========================================
+       https://script.google.com/macros/s/AKfycbwdiMMNJ5iaOn-E0dbXYmnx9D8dzmnSwgLSJ3R0YwIe7MFw8ZLb9Jo4rd2vYSsqm4fS/exec
+        // ========================================
+        // Step 1: Create Google Apps Script at: script.google.com
+        // Step 2: Copy this code into the script editor:
+        /*
+        function doPost(e) {
+          const sheet = SpreadsheetApp.getActiveSheet();
+          const timestamp = new Date();
+          const email = e.parameter.email;
+          const language = e.parameter.language || 'en';
+          const source = 'Landing Page Waitlist';
+          
+          // Add row to sheet
+          sheet.appendRow([timestamp, email, language, source]);
+          
+          return ContentService.createTextOutput(JSON.stringify({success: true}))
+            .setMimeType(ContentService.MimeType.JSON);
+        }
+        */
+        // Step 3: Deploy as Web App (Execute as: Me, Who has access: Anyone)
+        // Step 4: Copy the deployment URL and paste below:
+        
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec';
 
         function toggleLanguage() {
@@ -975,12 +1004,10 @@
             
             document.querySelectorAll('[data-en]').forEach(el => {
                 const text = el.getAttribute('data-' + currentLang);
+                if (!text) return;
+                
                 if (el.tagName === 'INPUT') {
-                    el.placeholder = currentLang === 'en' ? 
-                        el.getAttribute('data-placeholder-en') : 
-                        el.getAttribute('data-placeholder-es');
-                } else if (el.tagName === 'BUTTON') {
-                    el.textContent = text;
+                    el.placeholder = text;
                 } else {
                     el.textContent = text;
                 }
@@ -1009,9 +1036,11 @@
 
         async function handleWaitlistSubmit(event) {
             event.preventDefault();
-            const email = document.getElementById('email-input').value;
+            const email = document.getElementById('email-input').value.trim();
+            const btn = document.getElementById('waitlist-btn');
             
-            if (!email || !email.includes('@')) {
+            // Validation
+            if (!email || !email.includes('@') || !email.includes('.')) {
                 const error = currentLang === 'en' ? 
                     'Please enter a valid email address' :
                     'Por favor ingresa un correo electrónico válido';
@@ -1019,13 +1048,14 @@
                 return;
             }
 
-            const btn = document.getElementById('waitlist-btn');
+            // Disable button and show loading
             const originalText = btn.textContent;
             btn.textContent = currentLang === 'en' ? 'Joining...' : 'Uniéndose...';
             btn.disabled = true;
 
             try {
-                await fetch(GOOGLE_SCRIPT_URL, {
+                // Send to Google Apps Script
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
@@ -1037,6 +1067,7 @@
                     })
                 });
 
+                // Success message
                 const success = currentLang === 'en' ? 
                     'Welcome to kura! Check your inbox for updates.' :
                     '¡Bienvenido a kura! Revisa tu bandeja de entrada para actualizaciones.';
@@ -1044,6 +1075,7 @@
                 document.getElementById('email-input').value = '';
                 
             } catch (error) {
+                console.error('Error:', error);
                 const errorMsg = currentLang === 'en' ? 
                     'Something went wrong. Please try again.' :
                     'Algo salió mal. Por favor intenta de nuevo.';
