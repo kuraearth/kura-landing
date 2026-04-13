@@ -1,0 +1,827 @@
+Ah, you need static HTML! Let me convert the React app to pure HTML/CSS/JavaScript that you can upload anywhere:
+Action: file_editor create /app/kura-landing-page.html --file-text "<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <title>kura - Curated Wellness Marketplace</title>
+    <meta name=\"description\" content=\"The first curated marketplace for wellness therapies. Discover, book, and pay — curated, verified, global.\">
+    
+    <!-- Google Fonts -->
+    <link href=\"https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --forest-green: #1C2B25;
+            --cream: #F5EEE4;
+            --gold: #C8A98A;
+            --white: #FFFFFF;
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--sans);
+            overflow-x: hidden;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--cream);
+            color: var(--forest-green);
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+            font-family: var(--sans);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(28, 43, 37, 0.1);
+        }
+
+        .language-toggle:hover {
+            background-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(200, 169, 138, 0.3);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            background-color: var(--forest-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .hero-texture {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(200, 169, 138, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(200, 169, 138, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--cream);
+            letter-spacing: 0.1em;
+        }
+
+        .logo-dot {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        .hero-headline {
+            font-family: var(--serif);
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--cream);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subhead {
+            font-family: var(--sans);
+            font-size: 1.25rem;
+            color: var(--cream);
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+
+        .cta-button {
+            background-color: var(--gold);
+            color: var(--forest-green);
+            font-family: var(--sans);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1.5rem 3rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(200, 169, 138, 0.3);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background-color: var(--cream);
+            padding: 8rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--forest-green);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(28, 43, 37, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(28, 43, 37, 0.08);
+        }
+
+        .problem-icon {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .problem-title {
+            font-family: var(--sans);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+        }
+
+        .problem-text {
+            font-family: var(--sans);
+            color: var(--forest-green);
+            opacity: 0.75;
+            line-height: 1.6;
+        }
+
+        /* How It Works Section */
+        .how-it-works-section {
+            background-color: var(--white);
+            padding: 8rem 2rem;
+        }
+
+        .section-title-dark {
+            font-family: var(--serif);
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--forest-green);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 6rem;
+        }
+
+        .step-item {
+            text-align: center;
+        }
+
+        .step-number {
+            font-family: var(--serif);
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            opacity: 0.6;
+        }
+
+        .step-title {
+            font-family: var(--sans);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+        }
+
+        .step-text {
+            font-family: var(--sans);
+            color: var(--forest-green);
+            opacity: 0.7;
+            line-height: 1.6;
+        }
+
+        /* Phone Mockup */
+        .phone-mockup-container {
+            display: flex;
+            justify-content: center;
+            padding: 3rem 0;
+        }
+
+        .phone-frame {
+            position: relative;
+            width: 360px;
+            height: 720px;
+            background: linear-gradient(135deg, #2d3e37 0%, #1C2B25 100%);
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 30px 60px rgba(28, 43, 37, 0.25);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: var(--cream);
+            border-radius: 32px;
+            overflow-y: auto;
+            padding: 3rem 1.25rem 1.25rem;
+        }
+
+        .phone-header-title {
+            font-family: var(--serif);
+            font-size: 1.75rem;
+            font-weight: 500;
+            color: var(--forest-green);
+        }
+
+        /* Therapist CTA Section */
+        .therapist-cta-section {
+            background-color: var(--cream);
+            padding: 8rem 2rem;
+        }
+
+        .therapist-cta-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .therapist-cta-title {
+            font-family: var(--serif);
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--forest-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .therapist-cta-text {
+            font-family: var(--sans);
+            font-size: 1.25rem;
+            color: var(--forest-green);
+            opacity: 0.8;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .therapist-cta-button {
+            background-color: var(--forest-green);
+            color: var(--cream);
+            font-family: var(--sans);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1.5rem 3rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .therapist-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(28, 43, 37, 0.2);
+        }
+
+        /* Waitlist Section */
+        .waitlist-section {
+            background-color: var(--white);
+            padding: 8rem 2rem;
+        }
+
+        .waitlist-title {
+            font-family: var(--serif);
+            font-size: 4rem;
+            font-weight: 400;
+            color: var(--forest-green);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .waitlist-subtitle {
+            font-family: var(--sans);
+            font-size: 1.25rem;
+            color: var(--forest-green);
+            opacity: 0.7;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .waitlist-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .waitlist-input {
+            flex: 1;
+            min-width: 250px;
+            font-family: var(--sans);
+            font-size: 1.1rem;
+            padding: 1.5rem;
+            border: 2px solid rgba(28, 43, 37, 0.2);
+            border-radius: 8px;
+            background: var(--white);
+            transition: border-color 0.2s ease;
+        }
+
+        .waitlist-input:focus {
+            border-color: var(--gold);
+            outline: none;
+        }
+
+        .waitlist-button {
+            background-color: var(--gold);
+            color: var(--forest-green);
+            font-family: var(--sans);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1.5rem 2.5rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .waitlist-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(200, 169, 138, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--forest-green);
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--cream);
+            letter-spacing: 0.1em;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-family: var(--sans);
+            color: var(--cream);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--forest-green);
+            color: var(--cream);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+            display: none;
+        }
+
+        .toast.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: 2.5rem;
+            }
+            
+            .logo-text {
+                font-size: 3rem;
+            }
+            
+            .section-title,
+            .section-title-dark {
+                font-size: 2.25rem;
+            }
+            
+            .phone-frame {
+                width: 320px;
+                height: 640px;
+            }
+            
+            .waitlist-form {
+                flex-direction: column;
+            }
+            
+            .waitlist-input {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .language-toggle {
+                top: 1rem;
+                right: 1rem;
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            .hero-headline {
+                font-size: 2rem;
+            }
+            
+            .phone-frame {
+                width: 280px;
+                height: 560px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <button class=\"language-toggle\" onclick=\"toggleLanguage()\" aria-label=\"Toggle language\">
+        <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">
+            <path d=\"M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14.5 18h6\"/>
+        </svg>
+        <span id=\"lang-toggle-text\">ES</span>
+    </button>
+
+    <!-- Hero Section -->
+    <section class=\"hero-section\">
+        <div class=\"hero-content\">
+            <div class=\"logo-container\">
+                <h1 class=\"logo-text\">kura</h1>
+                <div class=\"logo-dot\"></div>
+            </div>
+            <h2 class=\"hero-headline\" data-en=\"The first curated marketplace for wellness therapies.\" data-es=\"El primer marketplace curado de terapias de bienestar.\">
+                The first curated marketplace for wellness therapies.
+            </h2>
+            <p class=\"hero-subhead\" data-en=\"Discover, book, and pay — curated, verified, global.\" data-es=\"Descubre, reserva y paga — curado, verificado, global.\">
+                Discover, book, and pay — curated, verified, global.
+            </p>
+            <button class=\"cta-button\" onclick=\"scrollToWaitlist()\" data-en=\"Join the Waitlist\" data-es=\"Únete a la Lista de Espera\">
+                Join the Waitlist
+            </button>
+        </div>
+        <div class=\"hero-texture\"></div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class=\"problem-section\">
+        <div class=\"section-container\">
+            <h2 class=\"section-title\" data-en=\"Why wellness needs kura\" data-es=\"Por qué el bienestar necesita kura\">
+                Why wellness needs kura
+            </h2>
+            <div class=\"problem-grid\">
+                <div class=\"problem-card\">
+                    <div class=\"problem-icon\">🔍</div>
+                    <h3 class=\"problem-title\" data-en=\"No dedicated platform\" data-es=\"Sin plataforma dedicada\">No dedicated platform</h3>
+                    <p class=\"problem-text\" data-en=\"Wellness seekers rely on generic booking sites or Instagram DMs to find treatments.\" data-es=\"Las personas buscan bienestar en sitios genéricos o mensajes de Instagram para encontrar tratamientos.\">
+                        Wellness seekers rely on generic booking sites or Instagram DMs to find treatments.
+                    </p>
+                </div>
+                
+                <div class=\"problem-card\">
+                    <div class=\"problem-icon\">✗</div>
+                    <h3 class=\"problem-title\" data-en=\"Impossible to discover\" data-es=\"Imposible de descubrir\">Impossible to discover</h3>
+                    <p class=\"problem-text\" data-en=\"Hidden gems and expert practitioners are buried in search results and social feeds.\" data-es=\"Joyas ocultas y profesionales expertos están enterrados en resultados de búsqueda y redes sociales.\">
+                        Hidden gems and expert practitioners are buried in search results and social feeds.
+                    </p>
+                </div>
+                
+                <div class=\"problem-card\">
+                    <div class=\"problem-icon\">💳</div>
+                    <h3 class=\"problem-title\" data-en=\"No integrated payments\" data-es=\"Sin pagos integrados\">No integrated payments</h3>
+                    <p class=\"problem-text\" data-en=\"Booking requires phone calls, WhatsApp, and manual cash or transfer arrangements.\" data-es=\"Reservar requiere llamadas telefónicas, WhatsApp y arreglos manuales de efectivo o transferencia.\">
+                        Booking requires phone calls, WhatsApp, and manual cash or transfer arrangements.
+                    </p>
+                </div>
+                
+                <div class=\"problem-card\">
+                    <div class=\"problem-icon\">🛡️</div>
+                    <h3 class=\"problem-title\" data-en=\"Zero credential verification\" data-es=\"Cero verificación de credenciales\">Zero credential verification</h3>
+                    <p class=\"problem-text\" data-en=\"No way to confirm training, certifications, or practitioner legitimacy.\" data-es=\"No hay forma de confirmar capacitación, certificaciones o legitimidad del profesional.\">
+                        No way to confirm training, certifications, or practitioner legitimacy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class=\"how-it-works-section\">
+        <div class=\"section-container\">
+            <h2 class=\"section-title-dark\" data-en=\"How kura works\" data-es=\"Cómo funciona kura\">How kura works</h2>
+            
+            <div class=\"steps-grid\">
+                <div class=\"step-item\">
+                    <div class=\"step-number\">1</div>
+                    <h3 class=\"step-title\" data-en=\"Answer 6 questions\" data-es=\"Responde 6 preguntas\">Answer 6 questions</h3>
+                    <p class=\"step-text\" data-en=\"Tell us your wellness goals, preferences, and any specific needs.\" data-es=\"Cuéntanos tus objetivos de bienestar, preferencias y necesidades específicas.\">
+                        Tell us your wellness goals, preferences, and any specific needs.
+                    </p>
+                </div>
+                
+                <div class=\"step-item\">
+                    <div class=\"step-number\">2</div>
+                    <h3 class=\"step-title\" data-en=\"Get personalized matches\" data-es=\"Obtén coincidencias personalizadas\">Get personalized matches</h3>
+                    <p class=\"step-text\" data-en=\"Browse curated, verified practitioners tailored to you.\" data-es=\"Explora profesionales curados y verificados adaptados a ti.\">
+                        Browse curated, verified practitioners tailored to you.
+                    </p>
+                </div>
+                
+                <div class=\"step-item\">
+                    <div class=\"step-number\">3</div>
+                    <h3 class=\"step-title\" data-en=\"Book & pay in-app\" data-es=\"Reserva y paga en la app\">Book & pay in-app</h3>
+                    <p class=\"step-text\" data-en=\"Secure booking and payment, all in one seamless experience.\" data-es=\"Reserva y pago seguros, todo en una experiencia fluida.\">
+                        Secure booking and payment, all in one seamless experience.
+                    </p>
+                </div>
+            </div>
+
+            <div class=\"phone-mockup-container\">
+                <div class=\"phone-frame\">
+                    <div class=\"phone-screen\">
+                        <h3 class=\"phone-header-title\" data-en=\"Your matches\" data-es=\"Tus coincidencias\">Your matches</h3>
+                        <p style=\"font-size: 0.875rem; color: var(--forest-green); opacity: 0.6; margin-top: 0.25rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(28, 43, 37, 0.1);\" data-en=\"4 verified practitioners in your area\" data-es=\"4 profesionales verificados en tu área\">
+                            4 verified practitioners in your area
+                        </p>
+                        <div style=\"font-size: 0.9rem; line-height: 1.4;\">
+                            <div style=\"background: white; border: 1px solid rgba(28, 43, 37, 0.1); border-radius: 12px; padding: 1rem; margin-bottom: 1rem;\">
+                                <div style=\"font-weight: 600; margin-bottom: 0.25rem;\">Deep Tissue Massage</div>
+                                <div style=\"font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;\">María González</div>
+                                <div style=\"display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;\">
+                                    <span>⭐ 4.9 (127)</span>
+                                    <span>📍 Polanco, CDMX</span>
+                                </div>
+                                <div style=\"display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;\">
+                                    <span>⏱️ 90 min</span>
+                                    <span style=\"font-weight: 600;\">$850 MXN</span>
+                                </div>
+                            </div>
+                            <div style=\"background: white; border: 1px solid rgba(28, 43, 37, 0.1); border-radius: 12px; padding: 1rem; margin-bottom: 1rem;\">
+                                <div style=\"font-weight: 600; margin-bottom: 0.25rem;\">Reiki Healing Session</div>
+                                <div style=\"font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;\">Carlos Mendoza</div>
+                                <div style=\"display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;\">
+                                    <span>⭐ 5.0 (89)</span>
+                                    <span>📍 Roma Norte, CDMX</span>
+                                </div>
+                                <div style=\"display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;\">
+                                    <span>⏱️ 60 min</span>
+                                    <span style=\"font-weight: 600;\">$950 MXN</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Therapist CTA Section -->
+    <section class=\"therapist-cta-section\">
+        <div class=\"section-container\">
+            <div class=\"therapist-cta-content\">
+                <h2 class=\"therapist-cta-title\" data-en=\"Are you a wellness practitioner?\" data-es=\"¿Eres un profesional del bienestar?\">
+                    Are you a wellness practitioner?
+                </h2>
+                <p class=\"therapist-cta-text\" data-en=\"Join kura as a Founding Therapist and be part of the future of wellness discovery.\" data-es=\"Únete a kura como Terapeuta Fundador y sé parte del futuro del descubrimiento del bienestar.\">
+                    Join kura as a Founding Therapist and be part of the future of wellness discovery.
+                </p>
+                <button class=\"therapist-cta-button\" onclick=\"showTherapistToast()\" data-en=\"Apply as Founding Therapist\" data-es=\"Aplicar como Terapeuta Fundador\">
+                    Apply as Founding Therapist
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section class=\"waitlist-section\" id=\"waitlist-section\">
+        <div class=\"section-container\">
+            <h2 class=\"waitlist-title\" data-en=\"Be first.\" data-es=\"Sé el primero.\">Be first.</h2>
+            <p class=\"waitlist-subtitle\" data-en=\"kura launches in Mexico City and Tulum. Join the waitlist.\" data-es=\"kura se lanza en Ciudad de México y Tulum. Únete a la lista de espera.\">
+                kura launches in Mexico City and Tulum. Join the waitlist.
+            </p>
+            
+            <form class=\"waitlist-form\" onsubmit=\"handleWaitlistSubmit(event)\">
+                <input 
+                    type=\"email\" 
+                    class=\"waitlist-input\" 
+                    id=\"email-input\"
+                    placeholder=\"your@email.com\"
+                    required
+                    data-placeholder-en=\"your@email.com\"
+                    data-placeholder-es=\"tu@email.com\"
+                >
+                <button type=\"submit\" class=\"waitlist-button\" id=\"waitlist-btn\" data-en=\"Join Waitlist\" data-es=\"Unirse a Lista de Espera\">
+                    Join Waitlist
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class=\"footer\">
+        <div class=\"footer-content\">
+            <div class=\"footer-logo\">kura</div>
+            <div class=\"footer-links\">
+                <a href=\"https://kura.earth\" target=\"_blank\" rel=\"noopener noreferrer\">kura.earth</a>
+                <a href=\"mailto:ivan@kura.earth\">ivan@kura.earth</a>
+                <a href=\"tel:+525531914302\">+52 55 3191 4302</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class=\"toast\" id=\"toast\"></div>
+
+    <script>
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            document.getElementById('lang-toggle-text').textContent = currentLang === 'en' ? 'ES' : 'EN';
+            
+            // Update all elements with translations
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute('data-' + currentLang);
+                if (el.tagName === 'INPUT') {
+                    el.placeholder = currentLang === 'en' ? 
+                        el.getAttribute('data-placeholder-en') : 
+                        el.getAttribute('data-placeholder-es');
+                } else if (el.tagName === 'BUTTON') {
+                    el.textContent = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+        }
+
+        function scrollToWaitlist() {
+            document.getElementById('waitlist-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function showTherapistToast() {
+            const message = currentLang === 'en' ? 
+                \"Applications opening soon! We'll notify our waitlist first.\" :
+                \"¡Aplicaciones abriendo pronto! Notificaremos primero a nuestra lista de espera.\";
+            showToast(message);
+        }
+
+        function handleWaitlistSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('email-input').value;
+            
+            if (!email || !email.includes('@')) {
+                const error = currentLang === 'en' ? 
+                    'Please enter a valid email address' :
+                    'Por favor ingresa un correo electrónico válido';
+                showToast(error);
+                return;
+            }
+
+            // Simulate form submission
+            const btn = document.getElementById('waitlist-btn');
+            const originalText = btn.textContent;
+            btn.textContent = currentLang === 'en' ? 'Joining...' : 'Uniéndose...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                const success = currentLang === 'en' ? 
+                    'Welcome to kura! Check your inbox for updates.' :
+                    '¡Bienvenido a kura! Revisa tu bandeja de entrada para actualizaciones.';
+                showToast(success);
+                document.getElementById('email-input').value = '';
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }, 800);
+        }
+    </script>
+</body>
+</html>"
+Observation: Create successful: /app/kura-landing-page.html
