@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kura - Curated Wellness Marketplace</title>
-    <meta name="description" content="The first curated marketplace for wellness therapies. Discover, book, and pay — curated, verified, global.">
+    <title>kura - El primer marketplace curado de bienestar</title>
+    <meta name="description" content="Descubre, reserva y paga terapias de bienestar verificadas. El marketplace curado para el bienestar global.">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -20,6 +20,8 @@
             --cream: #F5EEE4;
             --gold: #C8A98A;
             --white: #FFFFFF;
+            --sage: #8BA89E;
+            
             --serif: 'Playfair Display', serif;
             --sans: 'DM Sans', sans-serif;
         }
@@ -242,7 +244,11 @@
         .problem-icon {
             color: var(--gold);
             margin-bottom: 1.5rem;
-            font-size: 2rem;
+            font-size: 2.5rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
         }
 
         .problem-title {
@@ -691,15 +697,26 @@
                 height: 600px;
             }
         }
+
+        /* Custom Icons (no emojis) */
+        .icon-search::before {
+            content: '◉';
+            display: inline-block;
+        }
+
+        .icon-layers::before {
+            content: '≡';
+            display: inline-block;
+        }
+
+        .icon-lock::before {
+            content: '▪';
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
-    <button class="language-toggle" onclick="toggleLanguage()" aria-label="Toggle language">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14.5 18h6"/>
-        </svg>
-        <span id="lang-toggle-text">ES</span>
-    </button>
+    <button class="language-toggle" onclick="toggleLanguage()" aria-label="Toggle language" id="lang-toggle-text">EN</button>
 
     <section class="hero-section">
         <svg class="botanical-svg left" viewBox="0 0 200 200" fill="var(--cream)">
@@ -710,17 +727,16 @@
         </svg>
         <div class="hero-content">
             <div class="logo-container">
-                <h1 class="logo-text">kura</h1>
-                <div class="logo-dot"></div>
+                <h1 class="logo-text">kura<span style="position: absolute; right: -15px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 0.8em;">•</span></h1>
             </div>
             <h2 class="hero-headline" data-en="The first curated marketplace for wellness therapies." data-es="El primer marketplace curado de terapias de bienestar.">
-                The first curated marketplace for wellness therapies.
+                El primer marketplace curado de terapias de bienestar.
             </h2>
             <p class="hero-subhead" data-en="Discover, book, and pay — curated, verified, global." data-es="Descubre, reserva y paga — curado, verificado, global.">
-                Discover, book, and pay — curated, verified, global.
+                Descubre, reserva y paga — curado, verificado, global.
             </p>
             <button class="cta-button" onclick="scrollToWaitlist()" data-en="Join the Waitlist" data-es="Únete a la Lista de Espera">
-                Join the Waitlist
+                Únete a la Lista de Espera
             </button>
         </div>
         <div class="hero-texture"></div>
@@ -731,38 +747,38 @@
     <section class="problem-section">
         <div class="section-container">
             <h2 class="section-title" data-en="Why wellness needs kura" data-es="Por qué el bienestar necesita kura">
-                Why wellness needs kura
+                Por qué el bienestar necesita kura
             </h2>
             <div class="problem-grid">
                 <div class="problem-card">
-                    <div class="problem-icon">🔍</div>
-                    <h3 class="problem-title" data-en="No dedicated platform" data-es="Sin plataforma dedicada">No dedicated platform</h3>
+                    <div class="problem-icon">◉</div>
+                    <h3 class="problem-title" data-en="No dedicated platform" data-es="Sin plataforma dedicada">Sin plataforma dedicada</h3>
                     <p class="problem-text" data-en="Wellness seekers rely on generic booking sites or Instagram DMs to find treatments." data-es="Las personas buscan bienestar en sitios genéricos o mensajes de Instagram para encontrar tratamientos.">
-                        Wellness seekers rely on generic booking sites or Instagram DMs to find treatments.
+                        Las personas buscan bienestar en sitios genéricos o mensajes de Instagram para encontrar tratamientos.
                     </p>
                 </div>
                 
                 <div class="problem-card">
-                    <div class="problem-icon">✗</div>
-                    <h3 class="problem-title" data-en="Impossible to discover" data-es="Imposible de descubrir">Impossible to discover</h3>
+                    <div class="problem-icon">✕</div>
+                    <h3 class="problem-title" data-en="Impossible to discover" data-es="Imposible de descubrir">Imposible de descubrir</h3>
                     <p class="problem-text" data-en="Hidden gems and expert practitioners are buried in search results and social feeds." data-es="Joyas ocultas y profesionales expertos están enterrados en resultados de búsqueda y redes sociales.">
-                        Hidden gems and expert practitioners are buried in search results and social feeds.
+                        Joyas ocultas y profesionales expertos están enterrados en resultados de búsqueda y redes sociales.
                     </p>
                 </div>
                 
                 <div class="problem-card">
-                    <div class="problem-icon">💳</div>
-                    <h3 class="problem-title" data-en="No integrated payments" data-es="Sin pagos integrados">No integrated payments</h3>
+                    <div class="problem-icon">—</div>
+                    <h3 class="problem-title" data-en="No integrated payments" data-es="Sin pagos integrados">Sin pagos integrados</h3>
                     <p class="problem-text" data-en="Booking requires phone calls, WhatsApp, and manual cash or transfer arrangements." data-es="Reservar requiere llamadas telefónicas, WhatsApp y arreglos manuales de efectivo o transferencia.">
-                        Booking requires phone calls, WhatsApp, and manual cash or transfer arrangements.
+                        Reservar requiere llamadas telefónicas, WhatsApp y arreglos manuales de efectivo o transferencia.
                     </p>
                 </div>
                 
                 <div class="problem-card">
-                    <div class="problem-icon">🛡️</div>
-                    <h3 class="problem-title" data-en="Zero credential verification" data-es="Cero verificación de credenciales">Zero credential verification</h3>
+                    <div class="problem-icon">▲</div>
+                    <h3 class="problem-title" data-en="Zero credential verification" data-es="Cero verificación de credenciales">Cero verificación de credenciales</h3>
                     <p class="problem-text" data-en="No way to confirm training, certifications, or practitioner legitimacy." data-es="No hay forma de confirmar capacitación, certificaciones o legitimidad del profesional.">
-                        No way to confirm training, certifications, or practitioner legitimacy.
+                        No hay forma de confirmar capacitación, certificaciones o legitimidad del profesional.
                     </p>
                 </div>
             </div>
@@ -773,30 +789,30 @@
 
     <section class="how-it-works-section">
         <div class="section-container">
-            <h2 class="section-title-dark" data-en="How kura works" data-es="Cómo funciona kura">How kura works</h2>
+            <h2 class="section-title-dark" data-en="How kura works" data-es="Cómo funciona kura">Cómo funciona kura</h2>
             
             <div class="steps-grid">
                 <div class="step-item">
                     <div class="step-number">1</div>
-                    <h3 class="step-title" data-en="Answer 6 questions" data-es="Responde 6 preguntas">Answer 6 questions</h3>
+                    <h3 class="step-title" data-en="Answer 6 questions" data-es="Responde 6 preguntas">Responde 6 preguntas</h3>
                     <p class="step-text" data-en="Tell us your wellness goals, preferences, and any specific needs." data-es="Cuéntanos tus objetivos de bienestar, preferencias y necesidades específicas.">
-                        Tell us your wellness goals, preferences, and any specific needs.
+                        Cuéntanos tus objetivos de bienestar, preferencias y necesidades específicas.
                     </p>
                 </div>
                 
                 <div class="step-item">
                     <div class="step-number">2</div>
-                    <h3 class="step-title" data-en="Get personalized matches" data-es="Obtén coincidencias personalizadas">Get personalized matches</h3>
+                    <h3 class="step-title" data-en="Get personalized matches" data-es="Obtén coincidencias personalizadas">Obtén coincidencias personalizadas</h3>
                     <p class="step-text" data-en="Browse curated, verified practitioners tailored to you." data-es="Explora profesionales curados y verificados adaptados a ti.">
-                        Browse curated, verified practitioners tailored to you.
+                        Explora profesionales curados y verificados adaptados a ti.
                     </p>
                 </div>
                 
                 <div class="step-item">
                     <div class="step-number">3</div>
-                    <h3 class="step-title" data-en="Book & pay in-app" data-es="Reserva y paga en la app">Book & pay in-app</h3>
+                    <h3 class="step-title" data-en="Book & pay in-app" data-es="Reserva y paga en la app">Reserva y paga en la app</h3>
                     <p class="step-text" data-en="Secure booking and payment, all in one seamless experience." data-es="Reserva y pago seguros, todo en una experiencia fluida.">
-                        Secure booking and payment, all in one seamless experience.
+                        Reserva y pago seguros, todo en una experiencia fluida.
                     </p>
                 </div>
             </div>
@@ -804,20 +820,20 @@
             <div class="phone-mockups-container">
                 <div class="phone-frame">
                     <div class="phone-screen">
-                        <h3 class="phone-header-title" data-en="Your matches" data-es="Tus coincidencias">Your matches</h3>
+                        <h3 class="phone-header-title" data-en="Your matches" data-es="Tus coincidencias">Tus coincidencias</h3>
                         <p style="font-size: 0.875rem; color: var(--forest-green); opacity: 0.6; margin-top: 0.25rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(28, 43, 37, 0.1);" data-en="5 verified practitioners in your area" data-es="5 profesionales verificados en tu área">
-                            5 verified practitioners in your area
+                            5 profesionales verificados en tu área
                         </p>
                         <div style="font-size: 0.9rem; line-height: 1.4;">
                             <div style="background: white; border: 1px solid rgba(28, 43, 37, 0.1); border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
                                 <div style="font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem;">Therapeutic Massage</div>
                                 <div style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;">Dr. Ana Herrera</div>
                                 <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;">
-                                    <span>⭐ 4.9 (156)</span>
-                                    <span>📍 Polanco, CDMX</span>
+                                    <span>★ 4.9 (156)</span>
+                                    <span>▪ Polanco, CDMX</span>
                                 </div>
                                 <div style="display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;">
-                                    <span>⏱️ 90 min</span>
+                                    <span>◐ 90 min</span>
                                     <span style="font-weight: 600;">$1,200 MXN</span>
                                 </div>
                             </div>
@@ -825,11 +841,11 @@
                                 <div style="font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem;">Reflexology</div>
                                 <div style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;">María González</div>
                                 <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;">
-                                    <span>⭐ 5.0 (89)</span>
-                                    <span>📍 Tulum, Q.R.</span>
+                                    <span>★ 5.0 (89)</span>
+                                    <span>▪ Tulum, Q.R.</span>
                                 </div>
                                 <div style="display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;">
-                                    <span>⏱️ 60 min</span>
+                                    <span>◐ 60 min</span>
                                     <span style="font-weight: 600;">$850 MXN</span>
                                 </div>
                             </div>
@@ -837,11 +853,11 @@
                                 <div style="font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem;">Thai Massage</div>
                                 <div style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;">Sofía Ruiz</div>
                                 <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;">
-                                    <span>⭐ 4.8 (134)</span>
-                                    <span>📍 Roma Norte, CDMX</span>
+                                    <span>★ 4.8 (134)</span>
+                                    <span>▪ Roma Norte, CDMX</span>
                                 </div>
                                 <div style="display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;">
-                                    <span>⏱️ 120 min</span>
+                                    <span>◐ 120 min</span>
                                     <span style="font-weight: 600;">$1,400 MXN</span>
                                 </div>
                             </div>
@@ -856,29 +872,29 @@
                             <div class="booking-service">Therapeutic Massage</div>
                             
                             <div class="booking-detail">
-                                <div class="booking-label" data-en="Date" data-es="Fecha">Date</div>
+                                <div class="booking-label" data-en="Date" data-es="Fecha">Fecha</div>
                                 <div class="booking-value">Friday, May 16, 2025</div>
                             </div>
                             
                             <div class="booking-detail">
-                                <div class="booking-label" data-en="Time" data-es="Hora">Time</div>
+                                <div class="booking-label" data-en="Time" data-es="Hora">Hora</div>
                                 <div class="booking-value">3:00 PM</div>
                             </div>
                             
                             <div class="booking-detail">
-                                <div class="booking-label" data-en="Duration" data-es="Duración">Duration</div>
+                                <div class="booking-label" data-en="Duration" data-es="Duración">Duración</div>
                                 <div class="booking-value">90 minutes</div>
                             </div>
                             
                             <div class="booking-detail">
-                                <div class="booking-label" data-en="Location" data-es="Ubicación">Location</div>
+                                <div class="booking-label" data-en="Location" data-es="Ubicación">Ubicación</div>
                                 <div class="booking-value">Polanco, CDMX</div>
                             </div>
                             
                             <div class="booking-price">$1,200 MXN</div>
                         </div>
                         
-                        <button class="confirm-button" data-en="Confirm Booking" data-es="Confirmar Reserva">Confirm Booking</button>
+                        <button class="confirm-button" data-en="Confirm Booking" data-es="Confirmar Reserva">Confirmar Reserva</button>
                     </div>
                 </div>
             </div>
@@ -890,7 +906,7 @@
     <section class="locations-section">
         <div class="section-container">
             <h2 class="section-title" data-en="Coming Soon" data-es="Próximamente">
-                Coming Soon
+                Próximamente
             </h2>
             <div class="locations-grid">
                 <div class="location-card">
@@ -919,13 +935,13 @@
         <div class="section-container">
             <div class="therapist-cta-content">
                 <h2 class="therapist-cta-title" data-en="Are you a wellness practitioner?" data-es="¿Eres un profesional del bienestar?">
-                    Are you a wellness practitioner?
+                    ¿Eres un profesional del bienestar?
                 </h2>
                 <p class="therapist-cta-text" data-en="Join kura as a Founding Therapist and be part of the future of wellness discovery." data-es="Únete a kura como Terapeuta Fundador y sé parte del futuro del descubrimiento del bienestar.">
-                    Join kura as a Founding Therapist and be part of the future of wellness discovery.
+                    Únete a kura como Terapeuta Fundador y sé parte del futuro del descubrimiento del bienestar.
                 </p>
                 <button class="therapist-cta-button" onclick="showTherapistToast()" data-en="Apply as Founding Therapist" data-es="Aplicar como Terapeuta Fundador">
-                    Apply as Founding Therapist
+                    Aplicar como Terapeuta Fundador
                 </button>
             </div>
         </div>
@@ -935,9 +951,9 @@
 
     <section class="waitlist-section" id="waitlist-section">
         <div class="section-container">
-            <h2 class="waitlist-title" data-en="Be first." data-es="Sé el primero.">Be first.</h2>
+            <h2 class="waitlist-title" data-en="Be first." data-es="Sé el primero.">Sé el primero.</h2>
             <p class="waitlist-subtitle" data-en="kura launches in Mexico City and Tulum. Join the waitlist." data-es="kura se lanza en Ciudad de México y Tulum. Únete a la lista de espera.">
-                kura launches in Mexico City and Tulum. Join the waitlist.
+                kura se lanza en Ciudad de México y Tulum. Únete a la lista de espera.
             </p>
             
             <form class="waitlist-form" onsubmit="handleWaitlistSubmit(event)">
@@ -945,13 +961,13 @@
                     type="email" 
                     class="waitlist-input" 
                     id="email-input"
-                    placeholder="your@email.com"
+                    placeholder="tu@email.com"
                     required
                     data-placeholder-en="your@email.com"
                     data-placeholder-es="tu@email.com"
                 >
                 <button type="submit" class="waitlist-button" id="waitlist-btn" data-en="Join Waitlist" data-es="Unirse a Lista de Espera">
-                    Join Waitlist
+                    Unirse a Lista de Espera
                 </button>
             </form>
         </div>
@@ -971,14 +987,13 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        let currentLang = 'en';
+        let currentLang = 'es';
         
-        // Your Google Apps Script URL (already configured)
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwdiMMNJ5iaOn-E0dbXYmnx9D8dzmnSwgLSJ3R0YwIe7MFw8ZLb9Jo4rd2vYSsqm4fS/exec';
 
         function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'es' : 'en';
-            document.getElementById('lang-toggle-text').textContent = currentLang === 'en' ? 'ES' : 'EN';
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            document.getElementById('lang-toggle-text').textContent = currentLang === 'es' ? 'EN' : 'ES';
             
             document.querySelectorAll('[data-en]').forEach(el => {
                 const text = el.getAttribute('data-' + currentLang);
@@ -1006,9 +1021,9 @@
         }
 
         function showTherapistToast() {
-            const message = currentLang === 'en' ? 
-                "Applications opening soon! We'll notify our waitlist first." :
-                "¡Aplicaciones abriendo pronto! Notificaremos primero a nuestra lista de espera.";
+            const message = currentLang === 'es' ? 
+                "¡Aplicaciones abriendo pronto! Notificaremos primero a nuestra lista de espera." :
+                "Applications opening soon! We'll notify our waitlist first.";
             showToast(message);
         }
 
@@ -1017,23 +1032,20 @@
             const email = document.getElementById('email-input').value.trim();
             const btn = document.getElementById('waitlist-btn');
             
-            // Validation
             if (!email || !email.includes('@') || !email.includes('.')) {
-                const error = currentLang === 'en' ? 
-                    'Please enter a valid email address' :
-                    'Por favor ingresa un correo electrónico válido';
+                const error = currentLang === 'es' ? 
+                    'Por favor ingresa un correo electrónico válido' :
+                    'Please enter a valid email address';
                 showToast(error);
                 return;
             }
 
-            // Disable button and show loading
             const originalText = btn.textContent;
-            btn.textContent = currentLang === 'en' ? 'Joining...' : 'Uniéndose...';
+            btn.textContent = currentLang === 'es' ? 'Uniéndose...' : 'Joining...';
             btn.disabled = true;
 
             try {
-                // Send to Google Apps Script
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
@@ -1045,18 +1057,17 @@
                     })
                 });
 
-                // Success message
-                const success = currentLang === 'en' ? 
-                    'Welcome to kura! Check your inbox for updates.' :
-                    '¡Bienvenido a kura! Revisa tu bandeja de entrada para actualizaciones.';
+                const success = currentLang === 'es' ? 
+                    '¡Bienvenido a kura! Revisa tu bandeja de entrada para actualizaciones.' :
+                    'Welcome to kura! Check your inbox for updates.';
                 showToast(success);
                 document.getElementById('email-input').value = '';
                 
             } catch (error) {
                 console.error('Error:', error);
-                const errorMsg = currentLang === 'en' ? 
-                    'Something went wrong. Please try again.' :
-                    'Algo salió mal. Por favor intenta de nuevo.';
+                const errorMsg = currentLang === 'es' ? 
+                    'Algo salió mal. Por favor intenta de nuevo.' :
+                    'Something went wrong. Please try again.';
                 showToast(errorMsg);
             } finally {
                 btn.textContent = originalText;
