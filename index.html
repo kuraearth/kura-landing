@@ -530,8 +530,20 @@
             max-width: 600px;
             margin: 0 auto;
             display: flex;
+            flex-direction: column;
             gap: 1rem;
-            flex-wrap: wrap;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
         }
 
         .waitlist-input {
@@ -752,35 +764,79 @@
             </h2>
             <div class="problem-grid">
                 <div class="problem-card">
-                    <div class="problem-icon">◉</div>
-                    <h3 class="problem-title" data-en="No dedicated platform" data-es="Sin plataforma dedicada">Sin plataforma dedicada</h3>
-                    <p class="problem-text" data-en="Wellness seekers rely on generic booking sites or Instagram DMs to find treatments." data-es="Las personas buscan bienestar en sitios genéricos o mensajes de Instagram para encontrar tratamientos.">
-                        Las personas buscan bienestar en sitios genéricos o mensajes de Instagram para encontrar tratamientos.
-                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <div class="problem-icon" style="color: #999; margin-bottom: 0.5rem;">✕</div>
+                            <h3 class="problem-title" data-en="Before: No platform" data-es="Antes: Sin plataforma">Antes: Sin plataforma</h3>
+                            <p class="problem-text" data-en="Instagram, WhatsApp, and word of mouth. Lost in a sea of unrelated services." data-es="Instagram, WhatsApp y referencias. Perdido en un mar de servicios irrelevantes.">
+                                Instagram, WhatsApp y referencias. Perdido en un mar de servicios irrelevantes.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="problem-icon" style="color: #C8A98A; margin-bottom: 0.5rem;">◆</div>
+                            <h3 class="problem-title" data-en="Now: Built for wellness" data-es="Ahora: Hecha para el bienestar">Ahora: Hecha para el bienestar</h3>
+                            <p class="problem-text" data-en="One platform. Only therapies that matter. Designed entirely around your wellness journey." data-es="Una plataforma. Solo terapias que importan. Diseñada completamente para tu bienestar.">
+                                Una plataforma. Solo terapias que importan. Diseñada completamente para tu bienestar.
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="problem-card">
-                    <div class="problem-icon">✕</div>
-                    <h3 class="problem-title" data-en="Impossible to discover" data-es="Imposible de descubrir">Imposible de descubrir</h3>
-                    <p class="problem-text" data-en="Hidden gems and expert practitioners are buried in search results and social feeds." data-es="Joyas ocultas y profesionales expertos están enterrados en resultados de búsqueda y redes sociales.">
-                        Joyas ocultas y profesionales expertos están enterrados en resultados de búsqueda y redes sociales.
-                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <div class="problem-icon" style="color: #999; margin-bottom: 0.5rem;">✕</div>
+                            <h3 class="problem-title" data-en="Before: Impossible discovery" data-es="Antes: Imposible de descubrir">Antes: Imposible de descubrir</h3>
+                            <p class="problem-text" data-en="Scroll endlessly. No way to know who's actually good. Wrong matches. Wasted time." data-es="Navega sin fin. Sin saber quién es realmente bueno. Coincidencias equivocadas. Tiempo perdido.">
+                                Navega sin fin. Sin saber quién es realmente bueno. Coincidencias equivocadas. Tiempo perdido.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="problem-icon" style="color: #C8A98A; margin-bottom: 0.5rem;">◈</div>
+                            <h3 class="problem-title" data-en="Now: Personalized matches" data-es="Ahora: Recomendaciones personalizadas">Ahora: Recomendaciones personalizadas</h3>
+                            <p class="problem-text" data-en="Answer 6 questions. Get matched with therapists curated just for you. Smart recommendations. Right fit." data-es="Responde 6 preguntas. Obtén recomendaciones curadas especialmente para ti. Coincidencias inteligentes. La opción correcta.">
+                                Responde 6 preguntas. Obtén recomendaciones curadas especialmente para ti. Coincidencias inteligentes. La opción correcta.
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="problem-card">
-                    <div class="problem-icon">—</div>
-                    <h3 class="problem-title" data-en="No integrated payments" data-es="Sin pagos integrados">Sin pagos integrados</h3>
-                    <p class="problem-text" data-en="Booking requires phone calls, WhatsApp, and manual cash or transfer arrangements." data-es="Reservar requiere llamadas telefónicas, WhatsApp y arreglos manuales de efectivo o transferencia.">
-                        Reservar requiere llamadas telefónicas, WhatsApp y arreglos manuales de efectivo o transferencia.
-                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <div class="problem-icon" style="color: #999; margin-bottom: 0.5rem;">✕</div>
+                            <h3 class="problem-title" data-en="Before: No payments" data-es="Antes: Sin pagos integrados">Antes: Sin pagos integrados</h3>
+                            <p class="problem-text" data-en="80% cash. Manual transfers. Complicated cancellations. Zero security." data-es="80% en efectivo. Transferencias manuales. Cancelaciones complicadas. Sin seguridad.">
+                                80% en efectivo. Transferencias manuales. Cancelaciones complicadas. Sin seguridad.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="problem-icon" style="color: #C8A98A; margin-bottom: 0.5rem;">◊</div>
+                            <h3 class="problem-title" data-en="Now: Book with confidence" data-es="Ahora: Reserva con confianza">Ahora: Reserva con confianza</h3>
+                            <p class="problem-text" data-en="Secure payments. Instant confirmation. Easy cancellation. Full transparency. Peace of mind." data-es="Pagos seguros. Confirmación instantánea. Cancelación fácil. Total transparencia. Tranquilidad.">
+                                Pagos seguros. Confirmación instantánea. Cancelación fácil. Total transparencia. Tranquilidad.
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="problem-card">
-                    <div class="problem-icon">▲</div>
-                    <h3 class="problem-title" data-en="Zero credential verification" data-es="Cero verificación de credenciales">Cero verificación de credenciales</h3>
-                    <p class="problem-text" data-en="No way to confirm training, certifications, or practitioner legitimacy." data-es="No hay forma de confirmar capacitación, certificaciones o legitimidad del profesional.">
-                        No hay forma de confirmar capacitación, certificaciones o legitimidad del profesional.
-                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <div class="problem-icon" style="color: #999; margin-bottom: 0.5rem;">✕</div>
+                            <h3 class="problem-title" data-en="Before: Zero verification" data-es="Antes: Cero verificación">Antes: Cero verificación</h3>
+                            <p class="problem-text" data-en="Anyone can claim anything. No credentials. No reviews. No way to know quality." data-es="Cualquiera puede afirmar cualquier cosa. Sin credenciales. Sin reseñas. Sin forma de saber la calidad.">
+                                Cualquiera puede afirmar cualquier cosa. Sin credenciales. Sin reseñas. Sin forma de saber la calidad.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="problem-icon" style="color: #C8A98A; margin-bottom: 0.5rem;">◉</div>
+                            <h3 class="problem-title" data-en="Now: 100% verified" data-es="Ahora: 100% verificado">Ahora: 100% verificado</h3>
+                            <p class="problem-text" data-en="Rigorous 5-dimension curation. Credentials confirmed. Reviews verified. Only the best therapists." data-es="Curaduría rigurosa de 5 dimensiones. Credenciales confirmadas. Reseñas verificadas. Solo los mejores terapeutas.">
+                                Curaduría rigurosa de 5 dimensiones. Credenciales confirmadas. Reseñas verificadas. Solo los mejores terapeutas.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -958,15 +1014,69 @@
             </p>
             
             <form class="waitlist-form" onsubmit="handleWaitlistSubmit(event)">
-                <input 
-                    type="email" 
-                    class="waitlist-input" 
-                    id="email-input"
-                    placeholder="tu@email.com"
-                    required
-                    data-placeholder-en="your@email.com"
-                    data-placeholder-es="tu@email.com"
-                >
+                <div class="form-row">
+                    <input 
+                        type="text" 
+                        class="waitlist-input" 
+                        id="nombre-input"
+                        placeholder="Tu nombre"
+                        required
+                        data-placeholder-en="Your name"
+                        data-placeholder-es="Tu nombre"
+                    >
+                    <input 
+                        type="tel" 
+                        class="waitlist-input" 
+                        id="telefono-input"
+                        placeholder="+52 555 1234"
+                        required
+                        data-placeholder-en="+1 555 1234"
+                        data-placeholder-es="+52 555 1234"
+                    >
+                </div>
+                
+                <div class="form-row">
+                    <input 
+                        type="text" 
+                        class="waitlist-input" 
+                        id="ciudad-input"
+                        placeholder="Ciudad"
+                        required
+                        data-placeholder-en="City"
+                        data-placeholder-es="Ciudad"
+                    >
+                    <input 
+                        type="text" 
+                        class="waitlist-input" 
+                        id="pais-input"
+                        placeholder="País"
+                        required
+                        data-placeholder-en="Country"
+                        data-placeholder-es="País"
+                    >
+                </div>
+                
+                <div class="form-row">
+                    <input 
+                        type="email" 
+                        class="waitlist-input" 
+                        id="email-input"
+                        placeholder="tu@email.com"
+                        required
+                        data-placeholder-en="your@email.com"
+                        data-placeholder-es="tu@email.com"
+                    >
+                    <input 
+                        type="text" 
+                        class="waitlist-input" 
+                        id="terapias-input"
+                        placeholder="Ej: Masaje, Acupuntura"
+                        required
+                        data-placeholder-en="E.g: Massage, Acupuncture"
+                        data-placeholder-es="Ej: Masaje, Acupuntura"
+                    >
+                </div>
+                
                 <button type="submit" class="waitlist-button" id="waitlist-btn" data-en="Join Waitlist" data-es="Unirse a Lista de Espera">
                     Unirse a Lista de Espera
                 </button>
@@ -1030,7 +1140,12 @@
 
         async function handleWaitlistSubmit(event) {
             event.preventDefault();
+            const nombre = document.getElementById('nombre-input').value.trim();
+            const telefono = document.getElementById('telefono-input').value.trim();
+            const ciudad = document.getElementById('ciudad-input').value.trim();
+            const pais = document.getElementById('pais-input').value.trim();
             const email = document.getElementById('email-input').value.trim();
+            const terapias = document.getElementById('terapias-input').value.trim();
             const btn = document.getElementById('waitlist-btn');
             
             if (!email || !email.includes('@') || !email.includes('.')) {
@@ -1053,18 +1168,29 @@
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
+                        nombre: nombre,
+                        telefono: telefono,
+                        ciudad: ciudad,
+                        pais: pais,
                         email: email,
+                        terapias: terapias,
                         language: currentLang
                     })
                 });
 
-                // Success message (in no-cors mode, we assume success if fetch completes)
                 const success = currentLang === 'es' ? 
                     '¡Bienvenido a kura! Revisa tu bandeja de entrada para actualizaciones.' :
                     'Welcome to kura! Check your inbox for updates.';
                 showToast(success);
-                console.log('✓ Email submitted successfully:', email);
+                console.log('✓ Form submitted successfully');
+                
+                // Clear all inputs
+                document.getElementById('nombre-input').value = '';
+                document.getElementById('telefono-input').value = '';
+                document.getElementById('ciudad-input').value = '';
+                document.getElementById('pais-input').value = '';
                 document.getElementById('email-input').value = '';
+                document.getElementById('terapias-input').value = '';
                 
             } catch (error) {
                 console.error('Error:', error);
