@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kura - El primer marketplace curado de bienestar</title>
-    <\meta name="description" content="Descubre, reserva y paga terapias de bienestar verificadas. El marketplace curado para el bienestar global.">
+    <meta name="description" content="Descubre, reserva y paga terapias de bienestar verificadas. El marketplace curado para el bienestar global.">
     <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src *;">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1046,7 +1046,7 @@
             btn.disabled = true;
 
             try {
-                await fetch(GOOGLE_SCRIPT_URL, {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
@@ -1058,10 +1058,12 @@
                     })
                 });
 
+                // Success message (in no-cors mode, we assume success if fetch completes)
                 const success = currentLang === 'es' ? 
                     '¡Bienvenido a kura! Revisa tu bandeja de entrada para actualizaciones.' :
                     'Welcome to kura! Check your inbox for updates.';
                 showToast(success);
+                console.log('✓ Email submitted successfully:', email);
                 document.getElementById('email-input').value = '';
                 
             } catch (error) {
