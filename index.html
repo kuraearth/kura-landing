@@ -17,7 +17,7 @@
         }
 
         :root {
-           --amethyst: #2E1A47;
+            --amethyst: #2E1A47;
             --cream: #F5EEE4;
             --gold: #C8A98A;
             --white: #FFFFFF;
@@ -27,9 +27,7 @@
             --sans: 'DM Sans', sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: var(--sans);
@@ -53,7 +51,7 @@
             align-items: center;
             gap: 0.5rem;
             background-color: var(--cream);
-            color: var(--forest-green);
+            color: var(--amethyst);
             border: 2px solid var(--gold);
             border-radius: 8px;
             padding: 0.75rem 1.25rem;
@@ -62,7 +60,7 @@
             font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(28, 43, 37, 0.1);
+            box-shadow: 0 4px 12px rgba(46, 26, 71, 0.1);
         }
 
         .language-toggle:hover {
@@ -71,10 +69,11 @@
             box-shadow: 0 6px 16px rgba(200, 169, 138, 0.3);
         }
 
+        /* HERO */
         .hero-section {
             position: relative;
             min-height: 100vh;
-            background-color: var(--forest-green);
+            background-color: var(--amethyst);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -121,14 +120,8 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .logo-container {
@@ -157,14 +150,8 @@
         }
 
         @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.8;
-            }
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
         }
 
         .hero-headline {
@@ -188,7 +175,7 @@
 
         .cta-button {
             background-color: var(--gold);
-            color: var(--forest-green);
+            color: var(--amethyst);
             font-family: var(--sans);
             font-weight: 600;
             font-size: 1.1rem;
@@ -204,6 +191,7 @@
             box-shadow: 0 10px 30px rgba(200, 169, 138, 0.3);
         }
 
+        /* PROBLEM */
         .problem-section {
             background-color: var(--cream);
             padding: 8rem 2rem;
@@ -218,7 +206,7 @@
             font-family: var(--serif);
             font-size: 3.5rem;
             font-weight: 600;
-            color: var(--forest-green);
+            color: var(--amethyst);
             text-align: center;
             margin-bottom: 4rem;
         }
@@ -233,13 +221,13 @@
             background: var(--white);
             padding: 2.5rem;
             border-radius: 16px;
-            border: 1px solid rgba(28, 43, 37, 0.08);
+            border: 1px solid rgba(46, 26, 71, 0.08);
             transition: all 0.3s ease;
         }
 
         .problem-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(28, 43, 37, 0.08);
+            box-shadow: 0 20px 40px rgba(46, 26, 71, 0.08);
         }
 
         .problem-icon {
@@ -256,17 +244,18 @@
             font-family: var(--serif);
             font-size: 1.5rem;
             font-weight: 600;
-            color: var(--forest-green);
+            color: var(--amethyst);
             margin-bottom: 1rem;
         }
 
         .problem-text {
             font-family: var(--sans);
-            color: var(--forest-green);
+            color: var(--amethyst);
             opacity: 0.75;
             line-height: 1.7;
         }
 
+        /* HOW IT WORKS */
         .how-it-works-section {
             background-color: var(--white);
             padding: 8rem 2rem;
@@ -276,7 +265,7 @@
             font-family: var(--serif);
             font-size: 3.5rem;
             font-weight: 600;
-            color: var(--forest-green);
+            color: var(--amethyst);
             text-align: center;
             margin-bottom: 4rem;
         }
@@ -288,9 +277,7 @@
             margin-bottom: 6rem;
         }
 
-        .step-item {
-            text-align: center;
-        }
+        .step-item { text-align: center; }
 
         .step-number {
             font-family: var(--serif);
@@ -305,17 +292,18 @@
             font-family: var(--serif);
             font-size: 1.75rem;
             font-weight: 600;
-            color: var(--forest-green);
+            color: var(--amethyst);
             margin-bottom: 1rem;
         }
 
         .step-text {
             font-family: var(--sans);
-            color: var(--forest-green);
+            color: var(--amethyst);
             opacity: 0.7;
             line-height: 1.7;
         }
 
+        /* PHONE MOCKUPS */
         .phone-mockups-container {
             display: flex;
             justify-content: center;
@@ -328,10 +316,10 @@
             position: relative;
             width: 360px;
             height: 720px;
-            background: linear-gradient(135deg, #2d3e37 0%, #1C2B25 100%);
+            background: linear-gradient(135deg, #3d2255 0%, #2E1A47 100%);
             border-radius: 40px;
             padding: 12px;
-            box-shadow: 0 30px 60px rgba(28, 43, 37, 0.25);
+            box-shadow: 0 30px 60px rgba(46, 26, 71, 0.25);
         }
 
         .phone-screen {
@@ -344,7 +332,7 @@
         }
 
         .phone-screen.booking-screen {
-            background: var(--forest-green);
+            background: var(--amethyst);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -354,7 +342,7 @@
             font-family: var(--serif);
             font-size: 1.75rem;
             font-weight: 600;
-            color: var(--forest-green);
+            color: var(--amethyst);
         }
 
         .booking-content {
@@ -377,9 +365,7 @@
             margin-bottom: 2rem;
         }
 
-        .booking-detail {
-            margin-bottom: 1.5rem;
-        }
+        .booking-detail { margin-bottom: 1.5rem; }
 
         .booking-label {
             font-family: var(--sans);
@@ -405,7 +391,7 @@
 
         .confirm-button {
             background-color: var(--gold);
-            color: var(--forest-green);
+            color: var(--amethyst);
             font-family: var(--sans);
             font-weight: 600;
             font-size: 1.1rem;
@@ -416,6 +402,7 @@
             cursor: pointer;
         }
 
+        /* LOCATIONS */
         .locations-section {
             background-color: var(--cream);
             padding: 8rem 2rem;
@@ -433,13 +420,13 @@
             padding: 3rem 2rem;
             border-radius: 16px;
             text-align: center;
-            border: 1px solid rgba(28, 43, 37, 0.08);
+            border: 1px solid rgba(46, 26, 71, 0.08);
             transition: all 0.3s ease;
         }
 
         .location-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(28, 43, 37, 0.08);
+            box-shadow: 0 20px 40px rgba(46, 26, 71, 0.08);
         }
 
         .location-number {
@@ -454,9 +441,10 @@
             font-family: var(--serif);
             font-size: 1.75rem;
             font-weight: 600;
-            color: var(--forest-green);
+            color: var(--amethyst);
         }
 
+        /* THERAPIST CTA */
         .therapist-cta-section {
             background-color: var(--white);
             padding: 8rem 2rem;
@@ -472,21 +460,21 @@
             font-family: var(--serif);
             font-size: 3.5rem;
             font-weight: 600;
-            color: var(--forest-green);
+            color: var(--amethyst);
             margin-bottom: 1.5rem;
         }
 
         .therapist-cta-text {
             font-family: var(--sans);
             font-size: 1.25rem;
-            color: var(--forest-green);
+            color: var(--amethyst);
             opacity: 0.8;
             margin-bottom: 2.5rem;
             line-height: 1.7;
         }
 
         .therapist-cta-button {
-            background-color: var(--forest-green);
+            background-color: var(--amethyst);
             color: var(--cream);
             font-family: var(--sans);
             font-weight: 600;
@@ -500,9 +488,10 @@
 
         .therapist-cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(28, 43, 37, 0.2);
+            box-shadow: 0 10px 30px rgba(46, 26, 71, 0.2);
         }
 
+        /* WAITLIST */
         .waitlist-section {
             background-color: var(--cream);
             padding: 8rem 2rem;
@@ -512,7 +501,7 @@
             font-family: var(--serif);
             font-size: 4.5rem;
             font-weight: 600;
-            color: var(--forest-green);
+            color: var(--amethyst);
             text-align: center;
             margin-bottom: 1rem;
         }
@@ -520,7 +509,7 @@
         .waitlist-subtitle {
             font-family: var(--sans);
             font-size: 1.25rem;
-            color: var(--forest-green);
+            color: var(--amethyst);
             opacity: 0.7;
             text-align: center;
             margin-bottom: 3rem;
@@ -533,17 +522,15 @@
             flex-direction: column;
             gap: 1rem;
         }
-        
+
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1rem;
         }
-        
+
         @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
+            .form-row { grid-template-columns: 1fr; }
         }
 
         .waitlist-input {
@@ -552,7 +539,7 @@
             font-family: var(--sans);
             font-size: 1.1rem;
             padding: 1.5rem;
-            border: 2px solid rgba(28, 43, 37, 0.2);
+            border: 2px solid rgba(46, 26, 71, 0.2);
             border-radius: 8px;
             background: var(--white);
             transition: border-color 0.2s ease;
@@ -565,7 +552,7 @@
 
         .waitlist-button {
             background-color: var(--gold);
-            color: var(--forest-green);
+            color: var(--amethyst);
             font-family: var(--sans);
             font-weight: 600;
             font-size: 1.1rem;
@@ -587,8 +574,9 @@
             cursor: not-allowed;
         }
 
+        /* FOOTER */
         .footer {
-            background-color: var(--forest-green);
+            background-color: var(--amethyst);
             padding: 3rem 2rem;
         }
 
@@ -629,11 +617,12 @@
             color: var(--gold);
         }
 
+        /* TOAST */
         .toast {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background: var(--forest-green);
+            background: var(--amethyst);
             color: var(--cream);
             padding: 1rem 2rem;
             border-radius: 8px;
@@ -646,85 +635,60 @@
             max-width: 300px;
         }
 
-        .toast.show {
-            display: block;
-        }
+        .toast.show { display: block; }
 
         @keyframes slideIn {
-            from {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
+        /* PHONE INNER STYLES */
+        .phone-inner-card {
+            background: white;
+            border: 1px solid rgba(46, 26, 71, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .phone-inner-title {
+            font-family: var(--serif);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--amethyst);
+        }
+
+        .phone-inner-sub {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            margin-bottom: 0.5rem;
+            color: var(--amethyst);
+        }
+
+        .phone-inner-row {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(46, 26, 71, 0.08);
+            font-size: 0.85rem;
+            color: var(--amethyst);
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero-headline {
-                font-size: 2.75rem;
-            }
-            
-            .logo-text {
-                font-size: 3rem;
-            }
-            
-            .section-title,
-            .section-title-dark {
-                font-size: 2.5rem;
-            }
-            
-            .phone-mockups-container {
-                gap: 2rem;
-            }
-            
-            .phone-frame {
-                width: 320px;
-                height: 640px;
-            }
-            
-            .waitlist-form {
-                flex-direction: column;
-            }
-            
-            .waitlist-input {
-                min-width: 100%;
-            }
+            .hero-headline { font-size: 2.75rem; }
+            .logo-text { font-size: 3rem; }
+            .section-title, .section-title-dark { font-size: 2.5rem; }
+            .phone-mockups-container { gap: 2rem; }
+            .phone-frame { width: 320px; height: 640px; }
+            .waitlist-form { flex-direction: column; }
+            .waitlist-input { min-width: 100%; }
         }
 
         @media (max-width: 480px) {
-            .language-toggle {
-                top: 1rem;
-                right: 1rem;
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-            }
-            
-            .hero-headline {
-                font-size: 2.25rem;
-            }
-            
-            .phone-frame {
-                width: 300px;
-                height: 600px;
-            }
-        }
-
-        /* Custom Icons (no emojis) */
-        .icon-search::before {
-            content: '◉';
-            display: inline-block;
-        }
-
-        .icon-layers::before {
-            content: '≡';
-            display: inline-block;
-        }
-
-        .icon-lock::before {
-            content: '▪';
-            display: inline-block;
+            .language-toggle { top: 1rem; right: 1rem; padding: 0.6rem 1rem; font-size: 0.85rem; }
+            .hero-headline { font-size: 2.25rem; }
+            .phone-frame { width: 300px; height: 600px; }
         }
     </style>
 </head>
@@ -765,40 +729,29 @@
             <div class="problem-grid">
                 <div class="problem-card">
                     <div class="problem-icon">◆</div>
-                    <h3 class="problem-title" data-en="Built for wellness" data-es="Hecha para el bienestar">
-                        Hecha para el bienestar
-                    </h3>
-                    <p class="problem-text" data-en="A platform designed entirely around wellness. Only therapies and curated practitioners that matter." data-es="Una plataforma diseñada completamente para el bienestar. Solo terapias y sanadores curados que importan.">
+                    <h3 class="problem-title" data-en="Built for wellness" data-es="Hecha para el bienestar">Hecha para el bienestar</h3>
+                    <p class="problem-text" data-en="A platform designed entirely around wellness. Only therapies and curated practitioners that matter." data-es="Masajes, terapias, sanadores — todo en un solo lugar, todo verificado.">
                         Masajes, terapias, sanadores— todo en un solo lugar, todo verificado.
                     </p>
                 </div>
-                
                 <div class="problem-card">
                     <div class="problem-icon">◈</div>
-                    <h3 class="problem-title" data-en="Personalized matches" data-es="Recomendaciones personalizadas">
-                        Recomendaciones personalizadas
-                    </h3>
-                    <p class="problem-text" data-en="Answer 6 questions. Get matched with therapists curated just for you. Smart recommendations." data-es="Responde 6 preguntas. Obtén coincidencias con terapeutas curados para ti. Recomendaciones inteligentes.">
+                    <h3 class="problem-title" data-en="Personalized matches" data-es="Recomendaciones personalizadas">Recomendaciones personalizadas</h3>
+                    <p class="problem-text" data-en="Answer 6 questions. Get matched with therapists curated just for you." data-es="Responde 6 preguntas. Obtén coincidencias con terapeutas curados para ti. Recomendaciones inteligentes.">
                         Responde 6 preguntas. Obtén coincidencias con terapeutas curados para ti. Recomendaciones inteligentes.
                     </p>
                 </div>
-                
                 <div class="problem-card">
                     <div class="problem-icon">◊</div>
-                    <h3 class="problem-title" data-en="Book with confidence" data-es="Reserva con confianza">
-                        Reserva con confianza
-                    </h3>
-                    <p class="problem-text" data-en="Secure payments. Instant confirmation. Easy cancellation. Full transparency and peace of mind." data-es="Pagos seguros. Confirmación instantánea. Cancelación fácil. Transparencia total y tranquilidad.">
+                    <h3 class="problem-title" data-en="Book with confidence" data-es="Reserva con confianza">Reserva con confianza</h3>
+                    <p class="problem-text" data-en="Secure payments. Instant confirmation. Easy cancellation." data-es="Pagos seguros. Confirmación instantánea. Cancelación fácil. Transparencia total y tranquilidad.">
                         Pagos seguros. Confirmación instantánea. Cancelación fácil. Transparencia total y tranquilidad.
                     </p>
                 </div>
-                
                 <div class="problem-card">
                     <div class="problem-icon">◉</div>
-                    <h3 class="problem-title" data-en="100% verified" data-es="100% verificado">
-                        100% verificado
-                    </h3>
-                    <p class="problem-text" data-en="Rigorous 5-dimension curation. Credentials confirmed. Reviews verified. Only the best therapists." data-es="Curaduría rigurosa de 5 dimensiones. Credenciales confirmadas. Reseñas verificadas. Solo los mejores.">
+                    <h3 class="problem-title" data-en="100% verified" data-es="100% verificado">100% verificado</h3>
+                    <p class="problem-text" data-en="Rigorous 5-dimension curation. Credentials confirmed. Reviews verified." data-es="Curaduría rigurosa de 5 dimensiones. Credenciales confirmadas. Reseñas verificadas. Solo los mejores.">
                         Curaduría rigurosa de 5 dimensiones. Credenciales confirmadas. Reseñas verificadas. Solo los mejores.
                     </p>
                 </div>
@@ -811,7 +764,6 @@
     <section class="how-it-works-section">
         <div class="section-container">
             <h2 class="section-title-dark" data-en="How kura works" data-es="Cómo funciona kura">Cómo funciona kura</h2>
-            
             <div class="steps-grid">
                 <div class="step-item">
                     <div class="step-number">1</div>
@@ -820,7 +772,6 @@
                         Cuéntanos tus objetivos de bienestar, preferencias y necesidades específicas.
                     </p>
                 </div>
-                
                 <div class="step-item">
                     <div class="step-number">2</div>
                     <h3 class="step-title" data-en="Get personalized matches" data-es="Obtén coincidencias personalizadas">Obtén coincidencias personalizadas</h3>
@@ -828,7 +779,6 @@
                         Explora profesionales curados y verificados adaptados a ti.
                     </p>
                 </div>
-                
                 <div class="step-item">
                     <div class="step-number">3</div>
                     <h3 class="step-title" data-en="Book & pay in-app" data-es="Reserva y paga en la app">Reserva y paga en la app</h3>
@@ -842,42 +792,42 @@
                 <div class="phone-frame">
                     <div class="phone-screen">
                         <h3 class="phone-header-title" data-en="Your matches" data-es="Tus coincidencias">Tus coincidencias</h3>
-                        <p style="font-size: 0.875rem; color: var(--forest-green); opacity: 0.6; margin-top: 0.25rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(28, 43, 37, 0.1);" data-en="5 verified practitioners in your area" data-es="5 profesionales verificados en tu área">
+                        <p style="font-size: 0.875rem; color: var(--amethyst); opacity: 0.6; margin-top: 0.25rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(46, 26, 71, 0.1);" data-en="5 verified practitioners in your area" data-es="5 profesionales verificados en tu área">
                             5 profesionales verificados en tu área
                         </p>
                         <div style="font-size: 0.9rem; line-height: 1.4;">
-                            <div style="background: white; border: 1px solid rgba(28, 43, 37, 0.1); border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
-                                <div style="font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem;">Therapeutic Massage</div>
-                                <div style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;">Dr. Ana Herrera</div>
-                                <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                            <div class="phone-inner-card">
+                                <div class="phone-inner-title">Therapeutic Massage</div>
+                                <div class="phone-inner-sub">Dr. Ana Herrera</div>
+                                <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--amethyst);">
                                     <span>★ 4.9 (156)</span>
                                     <span>▪ Polanco, CDMX</span>
                                 </div>
-                                <div style="display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;">
+                                <div class="phone-inner-row">
                                     <span>◐ 90 min</span>
                                     <span style="font-weight: 600;">$1,200 MXN</span>
                                 </div>
                             </div>
-                            <div style="background: white; border: 1px solid rgba(28, 43, 37, 0.1); border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
-                                <div style="font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem;">Reflexology</div>
-                                <div style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;">María González</div>
-                                <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                            <div class="phone-inner-card">
+                                <div class="phone-inner-title">Reflexology</div>
+                                <div class="phone-inner-sub">María González</div>
+                                <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--amethyst);">
                                     <span>★ 5.0 (89)</span>
                                     <span>▪ Tulum, Q.R.</span>
                                 </div>
-                                <div style="display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;">
+                                <div class="phone-inner-row">
                                     <span>◐ 60 min</span>
                                     <span style="font-weight: 600;">$850 MXN</span>
                                 </div>
                             </div>
-                            <div style="background: white; border: 1px solid rgba(28, 43, 37, 0.1); border-radius: 12px; padding: 1rem;">
-                                <div style="font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem;">Thai Massage</div>
-                                <div style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;">Sofía Ruiz</div>
-                                <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                            <div class="phone-inner-card">
+                                <div class="phone-inner-title">Thai Massage</div>
+                                <div class="phone-inner-sub">Sofía Ruiz</div>
+                                <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--amethyst);">
                                     <span>★ 4.8 (134)</span>
                                     <span>▪ Roma Norte, CDMX</span>
                                 </div>
-                                <div style="display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;">
+                                <div class="phone-inner-row">
                                     <span>◐ 120 min</span>
                                     <span style="font-weight: 600;">$1,400 MXN</span>
                                 </div>
@@ -891,30 +841,24 @@
                         <div class="booking-content">
                             <div class="booking-therapist">Dr. Ana Herrera</div>
                             <div class="booking-service">Therapeutic Massage</div>
-                            
                             <div class="booking-detail">
                                 <div class="booking-label" data-en="Date" data-es="Fecha">Fecha</div>
-                                <div class="booking-value">Friday, May 16, 2025</div>
+                                <div class="booking-value">Viernes, 16 de mayo</div>
                             </div>
-                            
                             <div class="booking-detail">
                                 <div class="booking-label" data-en="Time" data-es="Hora">Hora</div>
                                 <div class="booking-value">3:00 PM</div>
                             </div>
-                            
                             <div class="booking-detail">
                                 <div class="booking-label" data-en="Duration" data-es="Duración">Duración</div>
-                                <div class="booking-value">90 minutes</div>
+                                <div class="booking-value">90 minutos</div>
                             </div>
-                            
                             <div class="booking-detail">
                                 <div class="booking-label" data-en="Location" data-es="Ubicación">Ubicación</div>
                                 <div class="booking-value">Polanco, CDMX</div>
                             </div>
-                            
                             <div class="booking-price">$1,200 MXN</div>
                         </div>
-                        
                         <button class="confirm-button" data-en="Confirm Booking" data-es="Confirmar Reserva">Confirmar Reserva</button>
                     </div>
                 </div>
@@ -926,9 +870,7 @@
 
     <section class="locations-section">
         <div class="section-container">
-            <h2 class="section-title" data-en="Coming Soon" data-es="Próximamente">
-                Próximamente
-            </h2>
+            <h2 class="section-title" data-en="Coming Soon" data-es="Próximamente">Próximamente</h2>
             <div class="locations-grid">
                 <div class="location-card">
                     <div class="location-number">01</div>
@@ -976,71 +918,19 @@
             <p class="waitlist-subtitle" data-en="kura launches in Mexico City and Tulum. Join the waitlist." data-es="kura se lanza en Ciudad de México y Tulum. Únete a la lista de espera.">
                 kura se lanza en Ciudad de México y Tulum. Únete a la lista de espera.
             </p>
-            
             <form class="waitlist-form" onsubmit="handleWaitlistSubmit(event)">
                 <div class="form-row">
-                    <input 
-                        type="text" 
-                        class="waitlist-input" 
-                        id="nombre-input"
-                        placeholder="Tu nombre"
-                        required
-                        data-placeholder-en="Your name"
-                        data-placeholder-es="Tu nombre"
-                    >
-                    <input 
-                        type="tel" 
-                        class="waitlist-input" 
-                        id="telefono-input"
-                        placeholder="+52 555 1234"
-                        required
-                        data-placeholder-en="+1 555 1234"
-                        data-placeholder-es="+52 555 1234"
-                    >
+                    <input type="text" class="waitlist-input" id="nombre-input" placeholder="Tu nombre" required data-placeholder-en="Your name" data-placeholder-es="Tu nombre">
+                    <input type="tel" class="waitlist-input" id="telefono-input" placeholder="+52 555 1234" required data-placeholder-en="+1 555 1234" data-placeholder-es="+52 555 1234">
                 </div>
-                
                 <div class="form-row">
-                    <input 
-                        type="text" 
-                        class="waitlist-input" 
-                        id="ciudad-input"
-                        placeholder="Ciudad"
-                        required
-                        data-placeholder-en="City"
-                        data-placeholder-es="Ciudad"
-                    >
-                    <input 
-                        type="text" 
-                        class="waitlist-input" 
-                        id="pais-input"
-                        placeholder="País"
-                        required
-                        data-placeholder-en="Country"
-                        data-placeholder-es="País"
-                    >
+                    <input type="text" class="waitlist-input" id="ciudad-input" placeholder="Ciudad" required data-placeholder-en="City" data-placeholder-es="Ciudad">
+                    <input type="text" class="waitlist-input" id="pais-input" placeholder="País" required data-placeholder-en="Country" data-placeholder-es="País">
                 </div>
-                
                 <div class="form-row">
-                    <input 
-                        type="email" 
-                        class="waitlist-input" 
-                        id="email-input"
-                        placeholder="tu@email.com"
-                        required
-                        data-placeholder-en="your@email.com"
-                        data-placeholder-es="tu@email.com"
-                    >
-                    <input 
-                        type="text" 
-                        class="waitlist-input" 
-                        id="terapias-input"
-                        placeholder="Ej: Masaje, Acupuntura"
-                        required
-                        data-placeholder-en="E.g: Massage, Acupuncture"
-                        data-placeholder-es="Ej: Masaje, Acupuntura"
-                    >
+                    <input type="email" class="waitlist-input" id="email-input" placeholder="tu@email.com" required data-placeholder-en="your@email.com" data-placeholder-es="tu@email.com">
+                    <input type="text" class="waitlist-input" id="terapias-input" placeholder="Ej: Masaje, Acupuntura" required data-placeholder-en="E.g: Massage, Acupuncture" data-placeholder-es="Ej: Masaje, Acupuntura">
                 </div>
-                
                 <button type="submit" class="waitlist-button" id="waitlist-btn" data-en="Join Waitlist" data-es="Unirse a Lista de Espera">
                     Unirse a Lista de Espera
                 </button>
@@ -1063,22 +953,16 @@
 
     <script>
         let currentLang = 'es';
-        
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx50nkaQLFrOa-l55uZJTU3N4TFZ_3z6gMAcM4EhIUAP33NWYYhoMFTgchIESsMNJri/exec';
 
         function toggleLanguage() {
             currentLang = currentLang === 'es' ? 'en' : 'es';
             document.getElementById('lang-toggle-text').textContent = currentLang === 'es' ? 'EN' : 'ES';
-            
             document.querySelectorAll('[data-en]').forEach(el => {
                 const text = el.getAttribute('data-' + currentLang);
                 if (!text) return;
-                
-                if (el.tagName === 'INPUT') {
-                    el.placeholder = text;
-                } else {
-                    el.textContent = text;
-                }
+                if (el.tagName === 'INPUT') { el.placeholder = text; }
+                else { el.textContent = text; }
             });
         }
 
@@ -1090,9 +974,7 @@
             const toast = document.getElementById('toast');
             toast.textContent = message;
             toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
+            setTimeout(() => toast.classList.remove('show'), 3000);
         }
 
         function showTherapistToast() {
@@ -1111,12 +993,9 @@
             const email = document.getElementById('email-input').value.trim();
             const terapias = document.getElementById('terapias-input').value.trim();
             const btn = document.getElementById('waitlist-btn');
-            
+
             if (!email || !email.includes('@') || !email.includes('.')) {
-                const error = currentLang === 'es' ? 
-                    'Por favor ingresa un correo electrónico válido' :
-                    'Please enter a valid email address';
-                showToast(error);
+                showToast(currentLang === 'es' ? 'Por favor ingresa un correo electrónico válido' : 'Please enter a valid email address');
                 return;
             }
 
@@ -1125,43 +1004,16 @@
             btn.disabled = true;
 
             try {
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        nombre: nombre,
-                        telefono: telefono,
-                        ciudad: ciudad,
-                        pais: pais,
-                        email: email,
-                        terapias: terapias,
-                        language: currentLang
-                    })
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nombre, telefono, ciudad, pais, email, terapias, language: currentLang })
                 });
-
-                const success = currentLang === 'es' ? 
-                    '¡Bienvenido a kura! Revisa tu bandeja de entrada para actualizaciones.' :
-                    'Welcome to kura! Check your inbox for updates.';
-                showToast(success);
-                console.log('✓ Form submitted successfully');
-                
-                // Clear all inputs
-                document.getElementById('nombre-input').value = '';
-                document.getElementById('telefono-input').value = '';
-                document.getElementById('ciudad-input').value = '';
-                document.getElementById('pais-input').value = '';
-                document.getElementById('email-input').value = '';
-                document.getElementById('terapias-input').value = '';
-                
+                showToast(currentLang === 'es' ? '¡Bienvenido a kura! Revisa tu bandeja de entrada.' : 'Welcome to kura! Check your inbox.');
+                ['nombre','telefono','ciudad','pais','email','terapias'].forEach(id => document.getElementById(id+'-input').value = '');
             } catch (error) {
-                console.error('Error:', error);
-                const errorMsg = currentLang === 'es' ? 
-                    'Algo salió mal. Por favor intenta de nuevo.' :
-                    'Something went wrong. Please try again.';
-                showToast(errorMsg);
+                showToast(currentLang === 'es' ? 'Algo salió mal. Por favor intenta de nuevo.' : 'Something went wrong. Please try again.');
             } finally {
                 btn.textContent = originalText;
                 btn.disabled = false;
