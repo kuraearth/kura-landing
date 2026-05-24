@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kura - El primer marketplace curado de bienestar</title>
-    <meta name="description" content="Descubre, reserva y paga terapias de bienestar verificadas. El marketplace curado para el bienestar global.">
+    <title>kura - Encuentra, verifica y reserva terapias de bienestar</title>
+    <meta name="description" content="Encuentra, verifica y reserva terapias de bienestar. Terapeutas verificados — en México y el mundo.">
     <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src *;">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --amethyst: #2E1A47;
@@ -22,17 +18,12 @@
             --gold: #C8A98A;
             --white: #FFFFFF;
             --sage: #8BA89E;
-            
             --serif: 'Playfair Display', serif;
             --sans: 'DM Sans', sans-serif;
         }
 
         html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--sans);
-            overflow-x: hidden;
-        }
+        body { font-family: var(--sans); overflow-x: hidden; }
 
         .section-divider {
             height: 2px;
@@ -44,25 +35,19 @@
 
         .language-toggle {
             position: fixed;
-            top: 2rem;
-            right: 2rem;
+            top: 2rem; right: 2rem;
             z-index: 100;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            display: flex; align-items: center; gap: 0.5rem;
             background-color: var(--cream);
             color: var(--amethyst);
             border: 2px solid var(--gold);
             border-radius: 8px;
             padding: 0.75rem 1.25rem;
-            font-family: var(--sans);
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-family: var(--sans); font-weight: 600; font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 4px 12px rgba(46, 26, 71, 0.1);
         }
-
         .language-toggle:hover {
             background-color: var(--gold);
             transform: translateY(-2px);
@@ -74,604 +59,205 @@
             position: relative;
             min-height: 100vh;
             background-color: var(--amethyst);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             padding: 2rem;
             overflow: hidden;
         }
-
         .hero-texture {
-            position: absolute;
-            inset: 0;
-            background-image: 
+            position: absolute; inset: 0;
+            background-image:
                 radial-gradient(circle at 20% 30%, rgba(200, 169, 138, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 80% 70%, rgba(200, 169, 138, 0.06) 0%, transparent 50%);
             pointer-events: none;
         }
-
-        .botanical-svg {
-            position: absolute;
-            opacity: 0.03;
-            pointer-events: none;
-        }
-
-        .botanical-svg.left {
-            left: -5%;
-            top: 20%;
-            width: 300px;
-            height: 300px;
-        }
-
-        .botanical-svg.right {
-            right: -5%;
-            bottom: 20%;
-            width: 350px;
-            height: 350px;
-            transform: rotate(180deg);
-        }
+        .botanical-svg { position: absolute; opacity: 0.03; pointer-events: none; }
+        .botanical-svg.left { left: -5%; top: 20%; width: 300px; height: 300px; }
+        .botanical-svg.right { right: -5%; bottom: 20%; width: 350px; height: 350px; transform: rotate(180deg); }
 
         .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 1000px;
-            text-align: center;
+            position: relative; z-index: 1;
+            max-width: 1000px; text-align: center;
             animation: fadeInUp 1s ease-out;
         }
-
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .logo-container {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 3rem;
-        }
-
+        .logo-container { position: relative; display: inline-block; margin-bottom: 3rem; }
         .logo-text {
-            font-family: var(--serif);
-            font-size: 4rem;
-            font-weight: 400;
-            color: var(--cream);
-            letter-spacing: 0.1em;
-        }
-
-        .logo-dot {
-            position: absolute;
-            top: -8px;
-            right: -12px;
-            width: 12px;
-            height: 12px;
-            background-color: var(--gold);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.8; }
+            font-family: var(--serif); font-size: 4rem; font-weight: 400;
+            color: var(--cream); letter-spacing: 0.1em;
         }
 
         .hero-headline {
             font-family: var(--serif);
-            font-size: 4.5rem;
-            font-weight: 600;
+            font-size: 4.5rem; font-weight: 600;
             color: var(--cream);
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
+            line-height: 1.15; margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
         }
-
         .hero-subhead {
             font-family: var(--sans);
             font-size: 1.35rem;
-            color: var(--cream);
-            opacity: 0.9;
-            margin-bottom: 3rem;
-            font-weight: 400;
+            color: var(--cream); opacity: 0.9;
+            margin-bottom: 3rem; font-weight: 400;
         }
-
         .cta-button {
-            background-color: var(--gold);
-            color: var(--amethyst);
-            font-family: var(--sans);
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 1.5rem 3rem;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            background-color: var(--gold); color: var(--amethyst);
+            font-family: var(--sans); font-weight: 600; font-size: 1.1rem;
+            padding: 1.5rem 3rem; border-radius: 8px; border: none;
+            cursor: pointer; transition: all 0.2s ease;
         }
-
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(200, 169, 138, 0.3);
         }
 
         /* PROBLEM */
-        .problem-section {
-            background-color: var(--cream);
-            padding: 8rem 2rem;
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        .problem-section { background-color: var(--cream); padding: 8rem 2rem; }
+        .section-container { max-width: 1200px; margin: 0 auto; }
         .section-title {
-            font-family: var(--serif);
-            font-size: 3.5rem;
-            font-weight: 600;
-            color: var(--amethyst);
-            text-align: center;
-            margin-bottom: 4rem;
+            font-family: var(--serif); font-size: 3.5rem; font-weight: 600;
+            color: var(--amethyst); text-align: center; margin-bottom: 4rem;
         }
-
         .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
-
         .problem-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid rgba(46, 26, 71, 0.08);
+            background: var(--white); padding: 2.5rem;
+            border-radius: 16px; border: 1px solid rgba(46, 26, 71, 0.08);
             transition: all 0.3s ease;
         }
-
-        .problem-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(46, 26, 71, 0.08);
-        }
-
-        .problem-icon {
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-size: 2.5rem;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-        }
-
-        .problem-title {
-            font-family: var(--serif);
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--amethyst);
-            margin-bottom: 1rem;
-        }
-
-        .problem-text {
-            font-family: var(--sans);
-            color: var(--amethyst);
-            opacity: 0.75;
-            line-height: 1.7;
-        }
+        .problem-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(46, 26, 71, 0.08); }
+        .problem-icon { color: var(--gold); margin-bottom: 1.5rem; font-size: 2.5rem; height: 60px; display: flex; align-items: center; }
+        .problem-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--amethyst); margin-bottom: 1rem; }
+        .problem-text { font-family: var(--sans); color: var(--amethyst); opacity: 0.75; line-height: 1.7; }
 
         /* HOW IT WORKS */
-        .how-it-works-section {
-            background-color: var(--white);
-            padding: 8rem 2rem;
-        }
-
+        .how-it-works-section { background-color: var(--white); padding: 8rem 2rem; }
         .section-title-dark {
-            font-family: var(--serif);
-            font-size: 3.5rem;
-            font-weight: 600;
-            color: var(--amethyst);
-            text-align: center;
-            margin-bottom: 4rem;
+            font-family: var(--serif); font-size: 3.5rem; font-weight: 600;
+            color: var(--amethyst); text-align: center; margin-bottom: 4rem;
         }
-
         .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-bottom: 6rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem; margin-bottom: 6rem;
         }
-
         .step-item { text-align: center; }
-
-        .step-number {
-            font-family: var(--serif);
-            font-size: 4rem;
-            font-weight: 400;
-            color: var(--gold);
-            margin-bottom: 1rem;
-            opacity: 0.6;
-        }
-
-        .step-title {
-            font-family: var(--serif);
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: var(--amethyst);
-            margin-bottom: 1rem;
-        }
-
-        .step-text {
-            font-family: var(--sans);
-            color: var(--amethyst);
-            opacity: 0.7;
-            line-height: 1.7;
-        }
+        .step-number { font-family: var(--serif); font-size: 4rem; font-weight: 400; color: var(--gold); margin-bottom: 1rem; opacity: 0.6; }
+        .step-title { font-family: var(--serif); font-size: 1.75rem; font-weight: 600; color: var(--amethyst); margin-bottom: 1rem; }
+        .step-text { font-family: var(--sans); color: var(--amethyst); opacity: 0.7; line-height: 1.7; }
 
         /* PHONE MOCKUPS */
         .phone-mockups-container {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            padding: 3rem 0;
+            display: flex; justify-content: center;
+            gap: 3rem; flex-wrap: wrap; padding: 3rem 0;
         }
-
         .phone-frame {
-            position: relative;
-            width: 360px;
-            height: 720px;
+            position: relative; width: 360px; height: 720px;
             background: linear-gradient(135deg, #3d2255 0%, #2E1A47 100%);
-            border-radius: 40px;
-            padding: 12px;
+            border-radius: 40px; padding: 12px;
             box-shadow: 0 30px 60px rgba(46, 26, 71, 0.25);
         }
-
         .phone-screen {
-            width: 100%;
-            height: 100%;
-            background: var(--cream);
-            border-radius: 32px;
-            overflow-y: auto;
-            padding: 3rem 1.25rem 1.25rem;
+            width: 100%; height: 100%;
+            background: var(--cream); border-radius: 32px;
+            overflow-y: auto; padding: 3rem 1.25rem 1.25rem;
         }
-
         .phone-screen.booking-screen {
             background: var(--amethyst);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            display: flex; flex-direction: column; justify-content: space-between;
         }
-
-        .phone-header-title {
-            font-family: var(--serif);
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: var(--amethyst);
-        }
-
-        .booking-content {
-            flex: 1;
-            color: var(--cream);
-        }
-
-        .booking-therapist {
-            font-family: var(--serif);
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--cream);
-        }
-
-        .booking-service {
-            font-family: var(--sans);
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 2rem;
-        }
-
+        .phone-header-title { font-family: var(--serif); font-size: 1.75rem; font-weight: 600; color: var(--amethyst); }
+        .booking-content { flex: 1; color: var(--cream); }
+        .booking-therapist { font-family: var(--serif); font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--cream); }
+        .booking-service { font-family: var(--sans); font-size: 1rem; opacity: 0.8; margin-bottom: 2rem; }
         .booking-detail { margin-bottom: 1.5rem; }
-
-        .booking-label {
-            font-family: var(--sans);
-            font-size: 0.85rem;
-            opacity: 0.7;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .booking-value {
-            font-family: var(--sans);
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        .booking-price {
-            font-family: var(--serif);
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin: 2rem 0;
-        }
-
+        .booking-label { font-family: var(--sans); font-size: 0.85rem; opacity: 0.7; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .booking-value { font-family: var(--sans); font-size: 1.1rem; font-weight: 500; }
+        .booking-price { font-family: var(--serif); font-size: 2.5rem; font-weight: 600; margin: 2rem 0; }
         .confirm-button {
-            background-color: var(--gold);
-            color: var(--amethyst);
-            font-family: var(--sans);
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 1.25rem;
-            border-radius: 12px;
-            border: none;
-            width: 100%;
-            cursor: pointer;
+            background-color: var(--gold); color: var(--amethyst);
+            font-family: var(--sans); font-weight: 600; font-size: 1.1rem;
+            padding: 1.25rem; border-radius: 12px; border: none; width: 100%; cursor: pointer;
         }
-
-        /* LOCATIONS */
-        .locations-section {
-            background-color: var(--cream);
-            padding: 8rem 2rem;
+        .phone-inner-card {
+            background: white; border: 1px solid rgba(46, 26, 71, 0.1);
+            border-radius: 12px; padding: 1rem; margin-bottom: 1rem;
         }
-
-        .locations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .location-card {
-            background: var(--white);
-            padding: 3rem 2rem;
-            border-radius: 16px;
-            text-align: center;
-            border: 1px solid rgba(46, 26, 71, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .location-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(46, 26, 71, 0.08);
-        }
-
-        .location-number {
-            font-family: var(--serif);
-            font-size: 1.5rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
-            opacity: 0.5;
-        }
-
-        .location-name {
-            font-family: var(--serif);
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: var(--amethyst);
+        .phone-inner-title { font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem; color: var(--amethyst); }
+        .phone-inner-sub { font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem; color: var(--amethyst); }
+        .phone-inner-row {
+            display: flex; justify-content: space-between;
+            padding-top: 0.5rem; border-top: 1px solid rgba(46, 26, 71, 0.08);
+            font-size: 0.85rem; color: var(--amethyst);
         }
 
         /* THERAPIST CTA */
-        .therapist-cta-section {
-            background-color: var(--white);
-            padding: 8rem 2rem;
-        }
-
-        .therapist-cta-content {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .therapist-cta-title {
-            font-family: var(--serif);
-            font-size: 3.5rem;
-            font-weight: 600;
-            color: var(--amethyst);
-            margin-bottom: 1.5rem;
-        }
-
-        .therapist-cta-text {
-            font-family: var(--sans);
-            font-size: 1.25rem;
-            color: var(--amethyst);
-            opacity: 0.8;
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
-        }
-
+        .therapist-cta-section { background-color: var(--cream); padding: 8rem 2rem; }
+        .therapist-cta-content { text-align: center; max-width: 700px; margin: 0 auto; }
+        .therapist-cta-title { font-family: var(--serif); font-size: 3.5rem; font-weight: 600; color: var(--amethyst); margin-bottom: 1.5rem; }
+        .therapist-cta-text { font-family: var(--sans); font-size: 1.25rem; color: var(--amethyst); opacity: 0.8; margin-bottom: 2.5rem; line-height: 1.7; }
         .therapist-cta-button {
-            background-color: var(--amethyst);
-            color: var(--cream);
-            font-family: var(--sans);
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 1.5rem 3rem;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            background-color: var(--amethyst); color: var(--cream);
+            font-family: var(--sans); font-weight: 600; font-size: 1.1rem;
+            padding: 1.5rem 3rem; border-radius: 8px; border: none;
+            cursor: pointer; transition: all 0.2s ease;
         }
-
-        .therapist-cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(46, 26, 71, 0.2);
-        }
+        .therapist-cta-button:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(46, 26, 71, 0.2); }
 
         /* WAITLIST */
-        .waitlist-section {
-            background-color: var(--cream);
-            padding: 8rem 2rem;
-        }
-
-        .waitlist-title {
-            font-family: var(--serif);
-            font-size: 4.5rem;
-            font-weight: 600;
-            color: var(--amethyst);
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .waitlist-subtitle {
-            font-family: var(--sans);
-            font-size: 1.25rem;
-            color: var(--amethyst);
-            opacity: 0.7;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .waitlist-form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .form-row { grid-template-columns: 1fr; }
-        }
-
+        .waitlist-section { background-color: var(--white); padding: 8rem 2rem; }
+        .waitlist-title { font-family: var(--serif); font-size: 4.5rem; font-weight: 600; color: var(--amethyst); text-align: center; margin-bottom: 1rem; }
+        .waitlist-subtitle { font-family: var(--sans); font-size: 1.25rem; color: var(--amethyst); opacity: 0.7; text-align: center; margin-bottom: 3rem; }
+        .waitlist-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } }
         .waitlist-input {
-            flex: 1;
-            min-width: 250px;
-            font-family: var(--sans);
-            font-size: 1.1rem;
-            padding: 1.5rem;
-            border: 2px solid rgba(46, 26, 71, 0.2);
-            border-radius: 8px;
-            background: var(--white);
+            flex: 1; min-width: 250px;
+            font-family: var(--sans); font-size: 1.1rem;
+            padding: 1.5rem; border: 2px solid rgba(46, 26, 71, 0.2);
+            border-radius: 8px; background: var(--cream);
             transition: border-color 0.2s ease;
         }
-
-        .waitlist-input:focus {
-            border-color: var(--gold);
-            outline: none;
-        }
-
+        .waitlist-input:focus { border-color: var(--gold); outline: none; }
         .waitlist-button {
-            background-color: var(--gold);
-            color: var(--amethyst);
-            font-family: var(--sans);
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 1.5rem 2.5rem;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            white-space: nowrap;
+            background-color: var(--gold); color: var(--amethyst);
+            font-family: var(--sans); font-weight: 600; font-size: 1.1rem;
+            padding: 1.5rem 2.5rem; border-radius: 8px; border: none;
+            cursor: pointer; transition: all 0.2s ease; white-space: nowrap;
         }
-
-        .waitlist-button:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(200, 169, 138, 0.3);
-        }
-
-        .waitlist-button:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
+        .waitlist-button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(200, 169, 138, 0.3); }
+        .waitlist-button:disabled { opacity: 0.7; cursor: not-allowed; }
 
         /* FOOTER */
-        .footer {
-            background-color: var(--amethyst);
-            padding: 3rem 2rem;
-        }
-
+        .footer { background-color: var(--amethyst); padding: 3rem 2rem; }
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 2rem;
         }
-
-        .footer-logo {
-            font-family: var(--serif);
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--cream);
-            letter-spacing: 0.1em;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            font-family: var(--sans);
-            color: var(--cream);
-            text-decoration: none;
-            opacity: 0.8;
-            transition: all 0.2s ease;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            color: var(--gold);
-        }
+        .footer-logo { font-family: var(--serif); font-size: 2rem; font-weight: 400; color: var(--cream); letter-spacing: 0.1em; }
+        .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+        .footer-links a { font-family: var(--sans); color: var(--cream); text-decoration: none; opacity: 0.8; transition: all 0.2s ease; }
+        .footer-links a:hover { opacity: 1; color: var(--gold); }
 
         /* TOAST */
         .toast {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--amethyst);
-            color: var(--cream);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            animation: slideIn 0.3s ease-out;
-            display: none;
-            font-family: var(--sans);
-            font-size: 0.95rem;
-            max-width: 300px;
+            position: fixed; bottom: 2rem; right: 2rem;
+            background: var(--amethyst); color: var(--cream);
+            padding: 1rem 2rem; border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            z-index: 1000; display: none;
+            font-family: var(--sans); font-size: 0.95rem; max-width: 300px;
         }
-
-        .toast.show { display: block; }
-
+        .toast.show { display: block; animation: slideIn 0.3s ease-out; }
         @keyframes slideIn {
             from { transform: translateX(400px); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
-        }
-
-        /* PHONE INNER STYLES */
-        .phone-inner-card {
-            background: white;
-            border: 1px solid rgba(46, 26, 71, 0.1);
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .phone-inner-title {
-            font-family: var(--serif);
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            color: var(--amethyst);
-        }
-
-        .phone-inner-sub {
-            font-size: 0.85rem;
-            opacity: 0.6;
-            margin-bottom: 0.5rem;
-            color: var(--amethyst);
-        }
-
-        .phone-inner-row {
-            display: flex;
-            justify-content: space-between;
-            padding-top: 0.5rem;
-            border-top: 1px solid rgba(46, 26, 71, 0.08);
-            font-size: 0.85rem;
-            color: var(--amethyst);
         }
 
         /* RESPONSIVE */
@@ -681,10 +267,7 @@
             .section-title, .section-title-dark { font-size: 2.5rem; }
             .phone-mockups-container { gap: 2rem; }
             .phone-frame { width: 320px; height: 640px; }
-            .waitlist-form { flex-direction: column; }
-            .waitlist-input { min-width: 100%; }
         }
-
         @media (max-width: 480px) {
             .language-toggle { top: 1rem; right: 1rem; padding: 0.6rem 1rem; font-size: 0.85rem; }
             .hero-headline { font-size: 2.25rem; }
@@ -706,11 +289,11 @@
             <div class="logo-container">
                 <h1 class="logo-text">kura<span style="position: absolute; right: -15px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 0.8em;">•</span></h1>
             </div>
-            <h2 class="hero-headline" data-en="The first curated marketplace for wellness therapies." data-es="El primer marketplace curado de terapias de bienestar.">
-                El primer marketplace curado de terapias de bienestar.
+            <h2 class="hero-headline" data-en="Find, verify and book wellness therapies." data-es="Encuentra, verifica y reserva terapias de bienestar.">
+                Encuentra, verifica y reserva terapias de bienestar.
             </h2>
-            <p class="hero-subhead" data-en="Discover, book, and pay — curated, verified, global." data-es="Descubre, reserva y paga — curado, verificado, global.">
-                Descubre, reserva y paga — curado, verificado, global.
+            <p class="hero-subhead" data-en="Verified, personalized, global." data-es="Verificado, personalizado, global.">
+                Verificado, personalizado, global.
             </p>
             <button class="cta-button" onclick="scrollToWaitlist()" data-en="Join the Waitlist" data-es="Únete a la Lista de Espera">
                 Únete a la Lista de Espera
@@ -730,15 +313,15 @@
                 <div class="problem-card">
                     <div class="problem-icon">◆</div>
                     <h3 class="problem-title" data-en="Built for wellness" data-es="Hecha para el bienestar">Hecha para el bienestar</h3>
-                    <p class="problem-text" data-en="A platform designed entirely around wellness. Only therapies and curated practitioners that matter." data-es="Masajes, terapias, sanadores — todo en un solo lugar, todo verificado.">
-                        Masajes, terapias, sanadores— todo en un solo lugar, todo verificado.
+                    <p class="problem-text" data-en="Massages, therapies, healers — all in one place, all verified." data-es="Masajes, terapias, sanadores — todo en un solo lugar, todo verificado.">
+                        Masajes, terapias, sanadores — todo en un solo lugar, todo verificado.
                     </p>
                 </div>
                 <div class="problem-card">
                     <div class="problem-icon">◈</div>
                     <h3 class="problem-title" data-en="Personalized matches" data-es="Recomendaciones personalizadas">Recomendaciones personalizadas</h3>
-                    <p class="problem-text" data-en="Answer 6 questions. Get matched with therapists curated just for you." data-es="Responde 6 preguntas. Obtén coincidencias con terapeutas curados para ti. Recomendaciones inteligentes.">
-                        Responde 6 preguntas. Obtén coincidencias con terapeutas curados para ti. Recomendaciones inteligentes.
+                    <p class="problem-text" data-en="Answer 6 questions. Get matched with verified therapists tailored just for you." data-es="Responde 6 preguntas. Obtén coincidencias con terapeutas verificados para ti.">
+                        Responde 6 preguntas. Obtén coincidencias con terapeutas verificados para ti.
                     </p>
                 </div>
                 <div class="problem-card">
@@ -751,8 +334,8 @@
                 <div class="problem-card">
                     <div class="problem-icon">◉</div>
                     <h3 class="problem-title" data-en="100% verified" data-es="100% verificado">100% verificado</h3>
-                    <p class="problem-text" data-en="Rigorous 5-dimension curation. Credentials confirmed. Reviews verified." data-es="Curaduría rigurosa de 5 dimensiones. Credenciales confirmadas. Reseñas verificadas. Solo los mejores.">
-                        Curaduría rigurosa de 5 dimensiones. Credenciales confirmadas. Reseñas verificadas. Solo los mejores.
+                    <p class="problem-text" data-en="Rigorous 5-dimension selection. Credentials confirmed. Reviews verified. Only the best." data-es="Selección rigurosa en 5 dimensiones. Credenciales confirmadas. Reseñas verificadas. Solo los mejores.">
+                        Selección rigurosa en 5 dimensiones. Credenciales confirmadas. Reseñas verificadas. Solo los mejores.
                     </p>
                 </div>
             </div>
@@ -775,8 +358,8 @@
                 <div class="step-item">
                     <div class="step-number">2</div>
                     <h3 class="step-title" data-en="Get personalized matches" data-es="Obtén coincidencias personalizadas">Obtén coincidencias personalizadas</h3>
-                    <p class="step-text" data-en="Browse curated, verified practitioners tailored to you." data-es="Explora profesionales curados y verificados adaptados a ti.">
-                        Explora profesionales curados y verificados adaptados a ti.
+                    <p class="step-text" data-en="Browse selected, verified practitioners tailored to you." data-es="Explora profesionales seleccionados y verificados adaptados a ti.">
+                        Explora profesionales seleccionados y verificados adaptados a ti.
                     </p>
                 </div>
                 <div class="step-item">
@@ -800,8 +383,7 @@
                                 <div class="phone-inner-title">Therapeutic Massage</div>
                                 <div class="phone-inner-sub">Dr. Ana Herrera</div>
                                 <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--amethyst);">
-                                    <span>★ 4.9 (156)</span>
-                                    <span>▪ Polanco, CDMX</span>
+                                    <span>★ 4.9 (156)</span><span>▪ Polanco, CDMX</span>
                                 </div>
                                 <div class="phone-inner-row">
                                     <span>◐ 90 min</span>
@@ -812,8 +394,7 @@
                                 <div class="phone-inner-title">Reflexology</div>
                                 <div class="phone-inner-sub">María González</div>
                                 <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--amethyst);">
-                                    <span>★ 5.0 (89)</span>
-                                    <span>▪ Tulum, Q.R.</span>
+                                    <span>★ 5.0 (89)</span><span>▪ Tulum, Q.R.</span>
                                 </div>
                                 <div class="phone-inner-row">
                                     <span>◐ 60 min</span>
@@ -824,8 +405,7 @@
                                 <div class="phone-inner-title">Thai Massage</div>
                                 <div class="phone-inner-sub">Sofía Ruiz</div>
                                 <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--amethyst);">
-                                    <span>★ 4.8 (134)</span>
-                                    <span>▪ Roma Norte, CDMX</span>
+                                    <span>★ 4.8 (134)</span><span>▪ Roma Norte, CDMX</span>
                                 </div>
                                 <div class="phone-inner-row">
                                     <span>◐ 120 min</span>
@@ -868,32 +448,6 @@
 
     <div class="section-divider"></div>
 
-    <section class="locations-section">
-        <div class="section-container">
-            <h2 class="section-title" data-en="Coming Soon" data-es="Próximamente">Próximamente</h2>
-            <div class="locations-grid">
-                <div class="location-card">
-                    <div class="location-number">01</div>
-                    <div class="location-name">Ciudad de México</div>
-                </div>
-                <div class="location-card">
-                    <div class="location-number">02</div>
-                    <div class="location-name">Tulum</div>
-                </div>
-                <div class="location-card">
-                    <div class="location-number">03</div>
-                    <div class="location-name">Tepoztlán</div>
-                </div>
-                <div class="location-card">
-                    <div class="location-number">04</div>
-                    <div class="location-name">San Miguel de Allende</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider"></div>
-
     <section class="therapist-cta-section">
         <div class="section-container">
             <div class="therapist-cta-content">
@@ -915,8 +469,8 @@
     <section class="waitlist-section" id="waitlist-section">
         <div class="section-container">
             <h2 class="waitlist-title" data-en="Be first." data-es="Sé el primero.">Sé el primero.</h2>
-            <p class="waitlist-subtitle" data-en="kura launches in Mexico City and Tulum. Join the waitlist." data-es="kura se lanza en Ciudad de México y Tulum. Únete a la lista de espera.">
-                kura se lanza en Ciudad de México y Tulum. Únete a la lista de espera.
+            <p class="waitlist-subtitle" data-en="kura is launching. Join the waitlist." data-es="kura está por lanzar. Únete a la lista de espera.">
+                kura está por lanzar. Únete a la lista de espera.
             </p>
             <form class="waitlist-form" onsubmit="handleWaitlistSubmit(event)">
                 <div class="form-row">
@@ -978,9 +532,9 @@
         }
 
         function showTherapistToast() {
-            const message = currentLang === 'es' ? 
-                "¡Aplicaciones abriendo pronto! Notificaremos primero a nuestra lista de espera." :
-                "Applications opening soon! We'll notify our waitlist first.";
+            const message = currentLang === 'es'
+                ? "¡Aplicaciones abriendo pronto! Notificaremos primero a nuestra lista de espera."
+                : "Applications opening soon! We'll notify our waitlist first.";
             showToast(message);
         }
 
@@ -1005,8 +559,7 @@
 
             try {
                 await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
+                    method: 'POST', mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ nombre, telefono, ciudad, pais, email, terapias, language: currentLang })
                 });
