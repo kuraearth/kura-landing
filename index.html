@@ -187,8 +187,8 @@
         /* ── TEPOZ CONCIERGE SPOTLIGHT ── */
         .tepoz-spotlight {
             background-image:
-                linear-gradient(to bottom, rgba(46, 26, 71, 0.70) 0%, rgba(46, 26, 71, 0.88) 100%),
-                url('images/tepoz-bg.jpg');
+                linear-gradient(to bottom, rgba(46, 26, 71, 0.65) 0%, rgba(46, 26, 71, 0.85) 100%),
+                url('images/tepoztlan-rock.jpg');
             background-size: cover;
             background-position: center top;
             background-attachment: scroll;
@@ -558,6 +558,77 @@
             letter-spacing: 0.02em;
         }
 
+        /* ── EXPERIENCE SECTION ── */
+        .experience-section {
+            background-color: var(--amethyst-900);
+            padding: 6rem 2rem;
+        }
+
+        .experience-section .section-title {
+            color: var(--cream-100);
+            margin-bottom: 1rem;
+        }
+
+        .experience-subtitle {
+            font-family: var(--sans);
+            font-size: 1.15rem;
+            color: var(--cream-100);
+            opacity: 0.65;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            font-style: italic;
+        }
+
+        .experience-mosaic {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 280px 280px;
+            gap: 8px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .exp-item {
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .exp-item.exp-tall {
+            grid-row: span 2;
+        }
+
+        .exp-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.6s ease;
+            filter: brightness(0.88) saturate(0.92);
+        }
+
+        .exp-item:hover img {
+            transform: scale(1.04);
+            filter: brightness(1) saturate(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .experience-mosaic {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+            .exp-item.exp-tall { grid-row: span 1; }
+            .exp-item { height: 220px; }
+        }
+
+        @media (max-width: 480px) {
+            .experience-mosaic {
+                grid-template-columns: 1fr;
+            }
+            .exp-item { height: 240px; }
+        }
+
         /* ── LOCATIONS ── */
         .locations-section {
             background-color: var(--cream-100);
@@ -580,7 +651,52 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: block;
+            overflow: hidden;
+            position: relative;
         }
+
+        .location-card.has-photo {
+            background-image:
+                linear-gradient(to top, rgba(46, 26, 71, 0.92) 0%, rgba(46, 26, 71, 0.6) 60%, rgba(46, 26, 71, 0.4) 100%);
+            background-size: cover;
+            background-position: center;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            border: none;
+        }
+
+        .location-card.has-photo .location-photo-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            transition: transform 0.6s ease;
+        }
+
+        .location-card.has-photo:hover .location-photo-bg {
+            transform: scale(1.04);
+        }
+
+        .location-card.has-photo .location-card-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .location-card.has-photo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(46,26,71,0.92) 0%, rgba(46,26,71,0.45) 60%, transparent 100%);
+            z-index: 1;
+        }
+
+        .location-card.has-photo .location-number { color: var(--gold-400); }
+        .location-card.has-photo .location-name   { color: var(--cream-100); }
+        .location-card.has-photo .location-soon   { color: var(--cream-100); opacity: 0.7; }
 
         .location-card:hover {
             transform: translateY(-6px);
@@ -1082,6 +1198,42 @@
         </div>
     </section>
 
+    <!-- ── EXPERIENCE MOSAIC ── -->
+    <section class="experience-section">
+        <div class="section-container">
+            <h2 class="section-title"
+                data-en="The Kura Experience"
+                data-es="La Experiencia Kura">
+                The Kura Experience
+            </h2>
+            <p class="experience-subtitle"
+               data-en="Ancient rituals. Modern curation. Transformative results."
+               data-es="Rituales ancestrales. Curaduría moderna. Resultados transformadores.">
+                Ancient rituals. Modern curation. Transformative results.
+            </p>
+            <div class="experience-mosaic">
+                <!-- tall left: tepoztlan aerial – spans 2 rows -->
+                <div class="exp-item exp-tall">
+                    <img src="images/tepoztlan-aerial.jpg" alt="Tepoztlán aerial view" loading="lazy">
+                </div>
+                <!-- top row center + right -->
+                <div class="exp-item">
+                    <img src="images/ceremony-mandala.jpg" alt="Ceremonial ritual" loading="lazy">
+                </div>
+                <div class="exp-item">
+                    <img src="images/healing-ceremony.jpg" alt="Healing ceremony" loading="lazy">
+                </div>
+                <!-- bottom row center + right -->
+                <div class="exp-item">
+                    <img src="images/pachamanca.jpg" alt="Earth oven ritual" loading="lazy">
+                </div>
+                <div class="exp-item">
+                    <img src="images/mandala-closeup.jpg" alt="Floral mandala" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="section-divider"></div>
 
     <!-- ── COMING SOON ── -->
@@ -1090,20 +1242,29 @@
             <h2 class="section-title"
                 data-en="Coming Soon" data-es="Próximamente">Coming Soon</h2>
             <div class="locations-grid">
-                <div class="location-card">
-                    <div class="location-number">01</div>
-                    <div class="location-name">Ciudad de México</div>
-                    <p class="location-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</p>
+                <div class="location-card has-photo">
+                    <div class="location-photo-bg" style="background-image:url('images/tepoztlan-cliff.jpg');"></div>
+                    <div class="location-card-inner">
+                        <div class="location-number">01</div>
+                        <div class="location-name">Ciudad de México</div>
+                        <p class="location-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</p>
+                    </div>
                 </div>
-                <div class="location-card">
-                    <div class="location-number">02</div>
-                    <div class="location-name">Tulum</div>
-                    <p class="location-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</p>
+                <div class="location-card has-photo">
+                    <div class="location-photo-bg" style="background-image:url('images/spa-tray.jpg');"></div>
+                    <div class="location-card-inner">
+                        <div class="location-number">02</div>
+                        <div class="location-name">Tulum</div>
+                        <p class="location-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</p>
+                    </div>
                 </div>
-                <div class="location-card">
-                    <div class="location-number">03</div>
-                    <div class="location-name">San Miguel de Allende</div>
-                    <p class="location-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</p>
+                <div class="location-card has-photo">
+                    <div class="location-photo-bg" style="background-image:url('images/massage-spine.jpg');"></div>
+                    <div class="location-card-inner">
+                        <div class="location-number">03</div>
+                        <div class="location-name">San Miguel de Allende</div>
+                        <p class="location-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</p>
+                    </div>
                 </div>
             </div>
         </div>
