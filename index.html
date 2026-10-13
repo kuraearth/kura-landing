@@ -3,161 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <title>kura - Curated Wellness Marketplace</title>
-    <meta name="description" content="The first curated marketplace for wellness therapies. Discover, book, and pay — curated, verified, global.">
+    <meta name="description" content="The first curated marketplace for wellness therapies in Mexico. Discover, book, and pay — curated, verified, in your language.">
 
-=======
-    <title>kura - Encuentra, verifica y reserva terapias de bienestar</title>
-    <meta name="description" content="Encuentra, verifica y reserva terapias de bienestar. Terapeutas verificados — en México y el mundo.">
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src *;">
-    
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
-            --amethyst: #2E1A47;
-            --cream: #F5EEE4;
-            --gold: #C8A98A;
-            --white: #FFFFFF;
-<<<<<<< HEAD
-=======
-            --sage: #8BA89E;
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
+            --amethyst-900: #2E1A47;
+            --amethyst-600: #5B3D82;
+            --gold-400:     #C8A98A;
+            --gold-700:     #7D5F3F;
+            --cream-100:    #F5EEE4;
+            --sand-100:     #EDE5D8;
+            --ink-muted:    #5F566B;
+            --white:        #FFFFFF;
             --serif: 'Playfair Display', serif;
-            --sans: 'DM Sans', sans-serif;
+            --sans:  'DM Sans', sans-serif;
         }
 
         html { scroll-behavior: smooth; }
-        body { font-family: var(--sans); overflow-x: hidden; }
 
+        body {
+            font-family: var(--sans);
+            overflow-x: hidden;
+            background: var(--cream-100);
+        }
+
+        /* ── DIVIDER ── */
         .section-divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            opacity: 0.3;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-400), transparent);
+            opacity: 0.35;
             margin: 0 auto;
             max-width: 600px;
         }
 
+        /* ── LANG TOGGLE ── */
         .language-toggle {
             position: fixed;
-            top: 2rem; right: 2rem;
+            top: 2rem;
+            right: 2rem;
             z-index: 100;
-            display: flex; align-items: center; gap: 0.5rem;
-            background-color: var(--cream);
-            color: var(--amethyst);
-            border: 2px solid var(--gold);
-            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--cream-100);
+            color: var(--amethyst-900);
+            border: 2px solid var(--gold-400);
+            border-radius: 12px;
             padding: 0.75rem 1.25rem;
-            font-family: var(--sans); font-weight: 600; font-size: 0.9rem;
+            font-family: var(--sans);
+            font-weight: 600;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 4px 12px rgba(46, 26, 71, 0.1);
         }
+
         .language-toggle:hover {
-            background-color: var(--gold);
+            background-color: var(--gold-400);
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(200, 169, 138, 0.3);
+            box-shadow: 0 6px 16px rgba(46, 26, 71, 0.18);
         }
 
-        /* HERO */
+        /* ── HERO ── */
         .hero-section {
             position: relative;
             min-height: 100vh;
-            background-color: var(--amethyst);
-            display: flex; align-items: center; justify-content: center;
+            background-color: var(--amethyst-900);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 2rem;
             overflow: hidden;
         }
+
         .hero-texture {
-<<<<<<< HEAD
             position: absolute;
             inset: 0;
-=======
-            position: absolute; inset: 0;
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
             background-image:
-                radial-gradient(circle at 20% 30%, rgba(200, 169, 138, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(200, 169, 138, 0.06) 0%, transparent 50%);
+                radial-gradient(circle at 20% 30%, rgba(200, 169, 138, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(91, 61, 130, 0.25) 0%, transparent 50%);
             pointer-events: none;
         }
-        .botanical-svg { position: absolute; opacity: 0.03; pointer-events: none; }
-        .botanical-svg.left { left: -5%; top: 20%; width: 300px; height: 300px; }
+
+        .botanical-svg {
+            position: absolute;
+            opacity: 0.04;
+            pointer-events: none;
+        }
+
+        .botanical-svg.left  { left: -5%; top: 20%; width: 300px; height: 300px; }
         .botanical-svg.right { right: -5%; bottom: 20%; width: 350px; height: 350px; transform: rotate(180deg); }
 
         .hero-content {
-            position: relative; z-index: 1;
-            max-width: 1000px; text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            text-align: center;
             animation: fadeInUp 1s ease-out;
         }
+
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        .logo-container { position: relative; display: inline-block; margin-bottom: 3rem; }
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+
         .logo-text {
-            font-family: var(--serif); font-size: 4rem; font-weight: 400;
-            color: var(--cream); letter-spacing: 0.1em;
+            font-family: var(--sans);
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--cream-100);
+            letter-spacing: 0.08em;
+        }
+
+        .logo-dot {
+            position: absolute;
+            top: 4px;
+            right: -10px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--gold-400);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50%       { transform: scale(1.25); opacity: 0.75; }
         }
 
         .hero-headline {
             font-family: var(--serif);
-            font-size: 4.5rem; font-weight: 600;
-            color: var(--cream);
-            line-height: 1.15; margin-bottom: 1.5rem;
+            font-size: 4.5rem;
+            font-weight: 600;
+            color: var(--cream-100);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
         }
+
         .hero-subhead {
             font-family: var(--sans);
             font-size: 1.35rem;
-            color: var(--cream); opacity: 0.9;
-            margin-bottom: 3rem; font-weight: 400;
-        }
-        .cta-button {
-            background-color: var(--gold); color: var(--amethyst);
-            font-family: var(--sans); font-weight: 600; font-size: 1.1rem;
-            padding: 1.5rem 3rem; border-radius: 8px; border: none;
-            cursor: pointer; transition: all 0.2s ease;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(200, 169, 138, 0.3);
+            color: var(--cream-100);
+            opacity: 0.85;
+            margin-bottom: 3rem;
+            font-weight: 400;
         }
 
-        /* PROBLEM */
-        .problem-section { background-color: var(--cream); padding: 8rem 2rem; }
-        .section-container { max-width: 1200px; margin: 0 auto; }
-        .section-title {
-            font-family: var(--serif); font-size: 3.5rem; font-weight: 600;
-            color: var(--amethyst); text-align: center; margin-bottom: 4rem;
+        .cta-button {
+            background-color: var(--gold-400);
+            color: var(--amethyst-900);
+            font-family: var(--sans);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 1.25rem 3rem;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.01em;
         }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(200, 169, 138, 0.35);
+        }
+
+        /* ── TEPOZ CONCIERGE SPOTLIGHT ── */
+        .tepoz-spotlight {
+            background-color: var(--amethyst-900);
+            padding: 7rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tepoz-spotlight::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 10% 50%, rgba(91, 61, 130, 0.4) 0%, transparent 60%),
+                radial-gradient(circle at 90% 50%, rgba(200, 169, 138, 0.08) 0%, transparent 55%);
+            pointer-events: none;
+        }
+
+        .tepoz-spotlight-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .tepoz-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--gold-400);
+            color: var(--amethyst-900);
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .tepoz-pill-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--amethyst-900);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .tepoz-title {
+            font-family: var(--serif);
+            font-size: 3.75rem;
+            font-weight: 600;
+            color: var(--cream-100);
+            line-height: 1.15;
+            margin-bottom: 0.5rem;
+        }
+
+        .tepoz-location {
+            font-family: var(--sans);
+            font-size: 1rem;
+            color: var(--gold-400);
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .tepoz-description {
+            font-family: var(--sans);
+            font-size: 1.2rem;
+            color: var(--cream-100);
+            opacity: 0.85;
+            line-height: 1.75;
+            margin-bottom: 2.75rem;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tepoz-cta {
+            display: inline-block;
+            background-color: var(--gold-400);
+            color: var(--amethyst-900);
+            font-family: var(--sans);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 1.25rem 3rem;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            margin-bottom: 2.5rem;
+        }
+
+        .tepoz-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(200, 169, 138, 0.35);
+        }
+
+        .tepoz-tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .tepoz-tag {
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            color: var(--cream-100);
+            opacity: 0.6;
+            padding: 0.3rem 0.85rem;
+            border: 1px solid rgba(245, 238, 228, 0.2);
+            border-radius: 20px;
+            font-weight: 400;
+        }
+
+        /* ── PROBLEM / WHY ── */
+        .problem-section {
+            background-color: var(--cream-100);
+            padding: 8rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: var(--amethyst-900);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
         .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
+
         .problem-card {
-            background: var(--white); padding: 2.5rem;
-            border-radius: 16px; border: 1px solid rgba(46, 26, 71, 0.08);
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(46, 26, 71, 0.07);
             transition: all 0.3s ease;
         }
-        .problem-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(46, 26, 71, 0.08); }
-        .problem-icon { color: var(--gold); margin-bottom: 1.5rem; font-size: 2.5rem; height: 60px; display: flex; align-items: center; }
-        .problem-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--amethyst); margin-bottom: 1rem; }
-        .problem-text { font-family: var(--sans); color: var(--amethyst); opacity: 0.75; line-height: 1.7; }
 
-<<<<<<< HEAD
         .problem-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(28, 43, 37, 0.08);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(46, 26, 71, 0.09);
         }
 
         .problem-icon {
-            color: var(--gold);
+            color: var(--gold-400);
             margin-bottom: 1.5rem;
             font-size: 2rem;
         }
@@ -166,73 +351,153 @@
             font-family: var(--serif);
             font-size: 1.5rem;
             font-weight: 600;
-            color: var(--forest-green);
+            color: var(--amethyst-900);
             margin-bottom: 1rem;
         }
 
         .problem-text {
             font-family: var(--sans);
-            color: var(--forest-green);
-            opacity: 0.75;
+            color: var(--ink-muted);
             line-height: 1.7;
         }
 
+        /* ── HOW IT WORKS ── */
         .how-it-works-section {
             background-color: var(--white);
             padding: 8rem 2rem;
         }
 
-=======
-        /* HOW IT WORKS */
-        .how-it-works-section { background-color: var(--white); padding: 8rem 2rem; }
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
         .section-title-dark {
-            font-family: var(--serif); font-size: 3.5rem; font-weight: 600;
-            color: var(--amethyst); text-align: center; margin-bottom: 4rem;
-        }
-        .steps-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem; margin-bottom: 6rem;
-        }
-        .step-item { text-align: center; }
-        .step-number { font-family: var(--serif); font-size: 4rem; font-weight: 400; color: var(--gold); margin-bottom: 1rem; opacity: 0.6; }
-        .step-title { font-family: var(--serif); font-size: 1.75rem; font-weight: 600; color: var(--amethyst); margin-bottom: 1rem; }
-        .step-text { font-family: var(--sans); color: var(--amethyst); opacity: 0.7; line-height: 1.7; }
-
-        /* PHONE MOCKUPS */
-        .phone-mockups-container {
-            display: flex; justify-content: center;
-            gap: 3rem; flex-wrap: wrap; padding: 3rem 0;
-        }
-        .phone-frame {
-            position: relative; width: 360px; height: 720px;
-            background: linear-gradient(135deg, #3d2255 0%, #2E1A47 100%);
-            border-radius: 40px; padding: 12px;
-            box-shadow: 0 30px 60px rgba(46, 26, 71, 0.25);
-        }
-        .phone-screen {
-            width: 100%; height: 100%;
-            background: var(--cream); border-radius: 32px;
-            overflow-y: auto; padding: 3rem 1.25rem 1.25rem;
-        }
-        .phone-screen.booking-screen {
-            background: var(--amethyst);
-            display: flex; flex-direction: column; justify-content: space-between;
-        }
-        .phone-header-title { font-family: var(--serif); font-size: 1.75rem; font-weight: 600; color: var(--amethyst); }
-        .booking-content { flex: 1; color: var(--cream); }
-        .booking-therapist { font-family: var(--serif); font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--cream); }
-        .booking-service { font-family: var(--sans); font-size: 1rem; opacity: 0.8; margin-bottom: 2rem; }
-        .booking-detail { margin-bottom: 1.5rem; }
-        .booking-label { font-family: var(--sans); font-size: 0.85rem; opacity: 0.7; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        .booking-value { font-family: var(--sans); font-size: 1.1rem; font-weight: 500; }
-        .booking-price { font-family: var(--serif); font-size: 2.5rem; font-weight: 600; margin: 2rem 0; }
-        .confirm-button {
-<<<<<<< HEAD
-            background-color: var(--gold);
-            color: var(--forest-green);
-            font-family: var(--sans);
+            font-family: var(--serif);
+            font-size: 3.5rem;
             font-weight: 600;
+            color: var(--amethyst-900);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 6rem;
+        }
+
+        .step-item { text-align: center; }
+
+        .step-number {
+            font-family: var(--serif);
+            font-size: 4rem;
+            font-weight: 400;
+            color: var(--gold-400);
+            margin-bottom: 1rem;
+            opacity: 0.55;
+        }
+
+        .step-title {
+            font-family: var(--serif);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--amethyst-900);
+            margin-bottom: 1rem;
+        }
+
+        .step-text {
+            font-family: var(--sans);
+            color: var(--ink-muted);
+            line-height: 1.7;
+        }
+
+        .phone-mockups-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            padding: 3rem 0;
+        }
+
+        .phone-frame {
+            position: relative;
+            width: 360px;
+            height: 720px;
+            background: linear-gradient(135deg, #4A3568 0%, #2E1A47 100%);
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 30px 60px rgba(46, 26, 71, 0.28);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: var(--cream-100);
+            border-radius: 32px;
+            overflow-y: auto;
+            padding: 3rem 1.25rem 1.25rem;
+        }
+
+        .phone-screen.booking-screen {
+            background: var(--amethyst-900);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .phone-header-title {
+            font-family: var(--serif);
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--amethyst-900);
+        }
+
+        .booking-content {
+            flex: 1;
+            color: var(--cream-100);
+        }
+
+        .booking-therapist {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--cream-100);
+        }
+
+        .booking-service {
+            font-family: var(--sans);
+            font-size: 1rem;
+            opacity: 0.75;
+            margin-bottom: 2rem;
+        }
+
+        .booking-detail { margin-bottom: 1.5rem; }
+
+        .booking-label {
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            opacity: 0.65;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .booking-value {
+            font-family: var(--sans);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .booking-price {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin: 2rem 0;
+        }
+
+        .confirm-button {
+            background-color: var(--gold-400);
+            color: var(--amethyst-900);
+            font-family: var(--sans);
+            font-weight: 700;
             font-size: 1.1rem;
             padding: 1.25rem;
             border-radius: 12px;
@@ -243,7 +508,7 @@
 
         /* ── IMAGE GALLERY STRIP ── */
         .gallery-section {
-            background-color: var(--forest-green);
+            background-color: var(--amethyst-900);
             padding: 0;
             overflow: hidden;
         }
@@ -266,7 +531,7 @@
             object-position: center;
             display: block;
             transition: transform 0.6s ease;
-            filter: brightness(0.88) saturate(0.95);
+            filter: brightness(0.85) saturate(0.9);
         }
 
         .gallery-item:hover img {
@@ -277,27 +542,27 @@
         .gallery-caption {
             text-align: center;
             padding: 2.5rem 2rem;
-            background-color: var(--forest-green);
+            background-color: var(--amethyst-900);
         }
 
         .gallery-caption p {
             font-family: var(--serif);
             font-size: 1.5rem;
-            color: var(--cream);
-            opacity: 0.85;
+            color: var(--cream-100);
+            opacity: 0.8;
             font-style: italic;
             letter-spacing: 0.02em;
         }
 
         /* ── LOCATIONS ── */
         .locations-section {
-            background-color: var(--cream);
+            background-color: var(--cream-100);
             padding: 8rem 2rem;
         }
 
         .locations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -305,23 +570,23 @@
         .location-card {
             background: var(--white);
             padding: 3rem 2rem;
-            border-radius: 16px;
+            border-radius: 12px;
             text-align: center;
-            border: 1px solid rgba(28, 43, 37, 0.08);
+            border: 1px solid rgba(46, 26, 71, 0.07);
             transition: all 0.3s ease;
             text-decoration: none;
             display: block;
         }
 
         .location-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(28, 43, 37, 0.08);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(46, 26, 71, 0.09);
         }
 
         .location-number {
             font-family: var(--serif);
             font-size: 1.5rem;
-            color: var(--gold);
+            color: var(--gold-400);
             margin-bottom: 1rem;
             opacity: 0.5;
         }
@@ -330,41 +595,18 @@
             font-family: var(--serif);
             font-size: 1.75rem;
             font-weight: 600;
-            color: var(--forest-green);
+            color: var(--amethyst-900);
         }
 
-        .location-badge {
-            display: inline-block;
-            margin-top: 0.75rem;
+        .location-soon {
+            margin-top: 0.6rem;
             font-family: var(--sans);
             font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--forest-green);
-            background-color: var(--gold);
-            padding: 0.3rem 0.85rem;
-            border-radius: 20px;
-            letter-spacing: 0.03em;
+            color: var(--ink-muted);
+            opacity: 0.7;
         }
 
-        .location-card-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
-            margin-top: 0.85rem;
-            font-family: var(--sans);
-            font-size: 0.85rem;
-            color: var(--forest-green);
-            opacity: 0.6;
-            font-weight: 500;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .location-card-link:hover {
-            opacity: 1;
-        }
-
+        /* ── THERAPIST CTA ── */
         .therapist-cta-section {
             background-color: var(--white);
             padding: 8rem 2rem;
@@ -380,49 +622,26 @@
             font-family: var(--serif);
             font-size: 3.5rem;
             font-weight: 600;
-            color: var(--forest-green);
+            color: var(--amethyst-900);
             margin-bottom: 1.5rem;
         }
 
         .therapist-cta-text {
             font-family: var(--sans);
             font-size: 1.25rem;
-            color: var(--forest-green);
-            opacity: 0.8;
+            color: var(--ink-muted);
             margin-bottom: 2.5rem;
             line-height: 1.7;
-=======
-            background-color: var(--gold); color: var(--amethyst);
-            font-family: var(--sans); font-weight: 600; font-size: 1.1rem;
-            padding: 1.25rem; border-radius: 12px; border: none; width: 100%; cursor: pointer;
-        }
-        .phone-inner-card {
-            background: white; border: 1px solid rgba(46, 26, 71, 0.1);
-            border-radius: 12px; padding: 1rem; margin-bottom: 1rem;
-        }
-        .phone-inner-title { font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem; color: var(--amethyst); }
-        .phone-inner-sub { font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem; color: var(--amethyst); }
-        .phone-inner-row {
-            display: flex; justify-content: space-between;
-            padding-top: 0.5rem; border-top: 1px solid rgba(46, 26, 71, 0.08);
-            font-size: 0.85rem; color: var(--amethyst);
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
         }
 
-        /* THERAPIST CTA */
-        .therapist-cta-section { background-color: var(--cream); padding: 8rem 2rem; }
-        .therapist-cta-content { text-align: center; max-width: 700px; margin: 0 auto; }
-        .therapist-cta-title { font-family: var(--serif); font-size: 3.5rem; font-weight: 600; color: var(--amethyst); margin-bottom: 1.5rem; }
-        .therapist-cta-text { font-family: var(--sans); font-size: 1.25rem; color: var(--amethyst); opacity: 0.8; margin-bottom: 2.5rem; line-height: 1.7; }
         .therapist-cta-button {
-<<<<<<< HEAD
-            background-color: var(--forest-green);
-            color: var(--cream);
+            background-color: var(--amethyst-900);
+            color: var(--cream-100);
             font-family: var(--sans);
             font-weight: 600;
             font-size: 1.1rem;
-            padding: 1.5rem 3rem;
-            border-radius: 8px;
+            padding: 1.25rem 3rem;
+            border-radius: 12px;
             border: none;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -430,11 +649,12 @@
 
         .therapist-cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(28, 43, 37, 0.2);
+            box-shadow: 0 10px 30px rgba(46, 26, 71, 0.22);
         }
 
+        /* ── WAITLIST ── */
         .waitlist-section {
-            background-color: var(--cream);
+            background-color: var(--cream-100);
             padding: 8rem 2rem;
         }
 
@@ -442,7 +662,7 @@
             font-family: var(--serif);
             font-size: 4.5rem;
             font-weight: 600;
-            color: var(--forest-green);
+            color: var(--amethyst-900);
             text-align: center;
             margin-bottom: 1rem;
         }
@@ -450,8 +670,7 @@
         .waitlist-subtitle {
             font-family: var(--sans);
             font-size: 1.25rem;
-            color: var(--forest-green);
-            opacity: 0.7;
+            color: var(--ink-muted);
             text-align: center;
             margin-bottom: 3rem;
         }
@@ -462,153 +681,159 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-=======
-            background-color: var(--amethyst); color: var(--cream);
-            font-family: var(--sans); font-weight: 600; font-size: 1.1rem;
-            padding: 1.5rem 3rem; border-radius: 8px; border: none;
-            cursor: pointer; transition: all 0.2s ease;
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
         }
-        .therapist-cta-button:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(46, 26, 71, 0.2); }
 
-        /* WAITLIST */
-        .waitlist-section { background-color: var(--white); padding: 8rem 2rem; }
-        .waitlist-title { font-family: var(--serif); font-size: 4.5rem; font-weight: 600; color: var(--amethyst); text-align: center; margin-bottom: 1rem; }
-        .waitlist-subtitle { font-family: var(--sans); font-size: 1.25rem; color: var(--amethyst); opacity: 0.7; text-align: center; margin-bottom: 3rem; }
-        .waitlist-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } }
         .waitlist-input {
-            flex: 1; min-width: 250px;
-            font-family: var(--sans); font-size: 1.1rem;
-            padding: 1.5rem; border: 2px solid rgba(46, 26, 71, 0.2);
-            border-radius: 8px; background: var(--cream);
+            flex: 1;
+            min-width: 250px;
+            font-family: var(--sans);
+            font-size: 1.1rem;
+            padding: 1.25rem 1.5rem;
+            border: 2px solid rgba(46, 26, 71, 0.18);
+            border-radius: 12px;
+            background: var(--white);
             transition: border-color 0.2s ease;
+            color: var(--amethyst-900);
         }
-        .waitlist-input:focus { border-color: var(--gold); outline: none; }
+
+        .waitlist-input::placeholder { color: var(--ink-muted); opacity: 0.7; }
+
+        .waitlist-input:focus {
+            border-color: var(--amethyst-600);
+            outline: none;
+        }
+
         .waitlist-button {
-            background-color: var(--gold); color: var(--amethyst);
-            font-family: var(--sans); font-weight: 600; font-size: 1.1rem;
-            padding: 1.5rem 2.5rem; border-radius: 8px; border: none;
-            cursor: pointer; transition: all 0.2s ease; white-space: nowrap;
+            background-color: var(--amethyst-900);
+            color: var(--cream-100);
+            font-family: var(--sans);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 1.25rem 2.5rem;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
         }
-        .waitlist-button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(200, 169, 138, 0.3); }
-        .waitlist-button:disabled { opacity: 0.7; cursor: not-allowed; }
 
-        /* FOOTER */
-        .footer { background-color: var(--amethyst); padding: 3rem 2rem; }
+        .waitlist-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(46, 26, 71, 0.22);
+        }
+
+        .waitlist-button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        /* ── FOOTER ── */
+        .footer {
+            background-color: var(--amethyst-900);
+            padding: 3rem 2rem;
+        }
+
         .footer-content {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center;
-            flex-wrap: wrap; gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
-        .footer-logo { font-family: var(--serif); font-size: 2rem; font-weight: 400; color: var(--cream); letter-spacing: 0.1em; }
-        .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-        .footer-links a { font-family: var(--sans); color: var(--cream); text-decoration: none; opacity: 0.8; transition: all 0.2s ease; }
-        .footer-links a:hover { opacity: 1; color: var(--gold); }
 
-        /* TOAST */
-        .toast {
-            position: fixed; bottom: 2rem; right: 2rem;
-            background: var(--amethyst); color: var(--cream);
-            padding: 1rem 2rem; border-radius: 8px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-            z-index: 1000; display: none;
-            font-family: var(--sans); font-size: 0.95rem; max-width: 300px;
+        .footer-logo {
+            font-family: var(--sans);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--cream-100);
+            letter-spacing: 0.08em;
         }
-        .toast.show { display: block; animation: slideIn 0.3s ease-out; }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-family: var(--sans);
+            color: var(--cream-100);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover { opacity: 1; color: var(--gold-400); }
+
+        /* ── TOAST ── */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--amethyst-900);
+            color: var(--cream-100);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(46, 26, 71, 0.3);
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+            display: none;
+            font-family: var(--sans);
+            font-size: 0.95rem;
+            max-width: 300px;
+        }
+
+        .toast.show { display: block; }
+
         @keyframes slideIn {
             from { transform: translateX(400px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+            to   { transform: translateX(0); opacity: 1; }
         }
 
-        /* RESPONSIVE */
+        /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
-<<<<<<< HEAD
-            .hero-headline {
-                font-size: 2.75rem;
-            }
-
-            .logo-text {
-                font-size: 3rem;
-            }
+            .hero-headline  { font-size: 2.75rem; }
+            .logo-text      { font-size: 3rem; }
+            .tepoz-title    { font-size: 2.75rem; }
 
             .section-title,
-            .section-title-dark {
-                font-size: 2.5rem;
-            }
+            .section-title-dark { font-size: 2.5rem; }
 
-            .phone-mockups-container {
-                gap: 2rem;
-            }
-
-            .phone-frame {
-                width: 320px;
-                height: 640px;
-            }
-
-            .waitlist-form {
-                flex-direction: column;
-            }
-
-            .waitlist-input {
-                min-width: 100%;
-            }
-
-            .gallery-strip {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-
-            .gallery-item {
-                height: 280px;
-            }
-=======
-            .hero-headline { font-size: 2.75rem; }
-            .logo-text { font-size: 3rem; }
-            .section-title, .section-title-dark { font-size: 2.5rem; }
             .phone-mockups-container { gap: 2rem; }
-            .phone-frame { width: 320px; height: 640px; }
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
+            .phone-frame  { width: 320px; height: 640px; }
+
+            .waitlist-form { flex-direction: column; }
+            .waitlist-input { min-width: 100%; }
+
+            .gallery-strip { grid-template-columns: 1fr; height: auto; }
+            .gallery-item  { height: 280px; }
+
+            .tepoz-spotlight { padding: 5rem 1.5rem; }
         }
+
         @media (max-width: 480px) {
-<<<<<<< HEAD
-            .language-toggle {
-                top: 1rem;
-                right: 1rem;
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-            }
-
-            .hero-headline {
-                font-size: 2.25rem;
-            }
-
-            .phone-frame {
-                width: 300px;
-                height: 600px;
-            }
-=======
             .language-toggle { top: 1rem; right: 1rem; padding: 0.6rem 1rem; font-size: 0.85rem; }
-            .hero-headline { font-size: 2.25rem; }
-            .phone-frame { width: 300px; height: 600px; }
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
+            .hero-headline   { font-size: 2.25rem; }
+            .tepoz-title     { font-size: 2.25rem; }
+            .phone-frame     { width: 300px; height: 600px; }
         }
     </style>
 </head>
 <body>
+
     <button class="language-toggle" onclick="toggleLanguage()" aria-label="Toggle language">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14.5 18h6"/>
         </svg>
         <span id="lang-toggle-text">ES</span>
     </button>
 
+    <!-- ── HERO ── -->
     <section class="hero-section">
-        <svg class="botanical-svg left" viewBox="0 0 200 200" fill="var(--cream)">
+        <svg class="botanical-svg left" viewBox="0 0 200 200" fill="var(--cream-100)">
             <path d="M100,20 Q120,40 100,60 Q80,40 100,20 M100,60 Q120,80 100,100 Q80,80 100,60 M100,100 Q120,120 100,140 Q80,120 100,100 M100,140 Q120,160 100,180 Q80,160 100,140"/>
         </svg>
-        <svg class="botanical-svg right" viewBox="0 0 200 200" fill="var(--cream)">
+        <svg class="botanical-svg right" viewBox="0 0 200 200" fill="var(--cream-100)">
             <path d="M100,20 Q120,40 100,60 Q80,40 100,20 M100,60 Q120,80 100,100 Q80,80 100,60 M100,100 Q120,120 100,140 Q80,120 100,100 M100,140 Q120,160 100,180 Q80,160 100,140"/>
         </svg>
         <div class="hero-content">
@@ -616,92 +841,101 @@
                 <h1 class="logo-text">kura</h1>
                 <div class="logo-dot"></div>
             </div>
-<<<<<<< HEAD
-            <h2 class="hero-headline" data-en="The first curated marketplace for wellness therapies." data-es="El primer marketplace curado de terapias de bienestar.">
+            <h2 class="hero-headline"
+                data-en="The first curated marketplace for wellness therapies."
+                data-es="El primer marketplace curado de terapias de bienestar.">
                 The first curated marketplace for wellness therapies.
             </h2>
-            <p class="hero-subhead" data-en="Discover, book, and pay — curated, verified, global." data-es="Descubre, reserva y paga — curado, verificado, global.">
-                Discover, book, and pay — curated, verified, global.
-=======
-            <h2 class="hero-headline" data-en="Find, verify and book wellness therapies." data-es="Encuentra, verifica y reserva terapias de bienestar.">
-                Encuentra, verifica y reserva terapias de bienestar.
-            </h2>
-            <p class="hero-subhead" data-en="Verified, personalized, global." data-es="Verificado, personalizado, global.">
-                Verificado, personalizado, global.
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
+            <p class="hero-subhead"
+               data-en="Hand-picked, verified wellness practitioners in Mexico."
+               data-es="Terapeutas verificados, elegidos a mano, en tu idioma.">
+                Hand-picked, verified wellness practitioners in Mexico.
             </p>
-            <button class="cta-button" onclick="scrollToWaitlist()" data-en="Join the Waitlist" data-es="Únete a la Lista de Espera">
+            <button class="cta-button" onclick="scrollToWaitlist()"
+                    data-en="Join the Waitlist" data-es="Únete a la Lista de Espera">
                 Join the Waitlist
             </button>
         </div>
         <div class="hero-texture"></div>
     </section>
 
+    <!-- ── TEPOZ CONCIERGE SPOTLIGHT ── -->
+    <section class="tepoz-spotlight">
+        <div class="tepoz-spotlight-inner">
+            <div class="tepoz-pill">
+                <span class="tepoz-pill-dot"></span>
+                <span data-en="Live now · Tepoztlán" data-es="Ya disponible · Tepoztlán">Live now · Tepoztlán</span>
+            </div>
+            <h2 class="tepoz-title"
+                data-en="Kura Concierge"
+                data-es="Kura Concierge">
+                Kura Concierge
+            </h2>
+            <p class="tepoz-location">Tepoztlán, Morelos</p>
+            <p class="tepoz-description"
+               data-en="Hand-picked therapists, personally booked for you. Tell us what you need — we handle the rest. One payment, no complications."
+               data-es="Terapeutas curados, reservados personalmente para ti. Dinos qué necesitas — nosotros hacemos el resto. Un solo pago, sin complicaciones.">
+                Hand-picked therapists, personally booked for you. Tell us what you need — we handle the rest. One payment, no complications.
+            </p>
+            <a href="https://tepoz.kura.earth" target="_blank" rel="noopener noreferrer"
+               class="tepoz-cta"
+               data-en="Book your session →" data-es="Reserva tu sesión →">
+                Book your session →
+            </a>
+            <div class="tepoz-tags">
+                <span class="tepoz-tag" data-en="Therapeutic Massage" data-es="Masaje terapéutico">Therapeutic Massage</span>
+                <span class="tepoz-tag" data-en="Reflexology" data-es="Reflexología">Reflexology</span>
+                <span class="tepoz-tag" data-en="Alternative therapies" data-es="Terapias alternativas">Alternative therapies</span>
+                <span class="tepoz-tag" data-en="English & Spanish" data-es="Inglés y español">English & Spanish</span>
+            </div>
+        </div>
+    </section>
+
     <div class="section-divider"></div>
 
+    <!-- ── WHY KURA ── -->
     <section class="problem-section">
         <div class="section-container">
-            <h2 class="section-title" data-en="Why wellness needs kura" data-es="Por qué el bienestar necesita kura">
+            <h2 class="section-title"
+                data-en="Why wellness needs kura"
+                data-es="Por qué el bienestar necesita kura">
                 Why wellness needs kura
             </h2>
             <div class="problem-grid">
                 <div class="problem-card">
-<<<<<<< HEAD
                     <div class="problem-icon">🔍</div>
                     <h3 class="problem-title" data-en="Built for wellness" data-es="Hecha para el bienestar">Built for wellness</h3>
-                    <p class="problem-text" data-en="Massages, therapies, healers — all in one place, all verified." data-es="Masajes, terapias, sanadores — todo en un solo lugar, todo verificado.">
+                    <p class="problem-text"
+                       data-en="Massages, therapies, healers — all in one place, all verified."
+                       data-es="Masajes, terapias, sanadores — todo en un solo lugar, todo verificado.">
                         Massages, therapies, healers — all in one place, all verified.
                     </p>
                 </div>
-
                 <div class="problem-card">
-                    <div class="problem-icon">✗</div>
-                    <h3 class="problem-title" data-en="Personalized recommendations" data-es="Recomendaciones personalizadas">Personalized recommendations</h3>
-                    <p class="problem-text" data-en="Answer 6 questions. Get matched with practitioners curated for you." data-es="Responde 6 preguntas. Obtén coincidencias con terapeutas curados para ti.">
+                    <div class="problem-icon">✦</div>
+                    <h3 class="problem-title" data-en="Personalized matches" data-es="Coincidencias personalizadas">Personalized matches</h3>
+                    <p class="problem-text"
+                       data-en="Answer 6 questions. Get matched with practitioners curated for you."
+                       data-es="Responde 6 preguntas. Obtén coincidencias con terapeutas curados para ti.">
                         Answer 6 questions. Get matched with practitioners curated for you.
                     </p>
                 </div>
-
                 <div class="problem-card">
                     <div class="problem-icon">💳</div>
                     <h3 class="problem-title" data-en="Book with confidence" data-es="Reserva con confianza">Book with confidence</h3>
-                    <p class="problem-text" data-en="Secure payments. Instant confirmation. Easy cancellation. Total peace of mind." data-es="Pagos seguros. Confirmación instantánea. Cancelación fácil. Transparencia total.">
-                        Secure payments. Instant confirmation. Easy cancellation. Total peace of mind.
+                    <p class="problem-text"
+                       data-en="Secure payments. Easy cancellation. Total peace of mind."
+                       data-es="Pagos seguros. Cancelación fácil. Transparencia total.">
+                        Secure payments. Easy cancellation. Total peace of mind.
                     </p>
                 </div>
-
                 <div class="problem-card">
                     <div class="problem-icon">🛡️</div>
                     <h3 class="problem-title" data-en="100% verified" data-es="100% verificado">100% verified</h3>
-                    <p class="problem-text" data-en="Rigorous 5-dimension curation. Confirmed credentials. Verified reviews. Only the best." data-es="Curaduría rigurosa de 5 dimensiones. Credenciales confirmadas. Reseñas verificadas. Solo los mejores.">
-                        Rigorous 5-dimension curation. Confirmed credentials. Verified reviews. Only the best.
-=======
-                    <div class="problem-icon">◆</div>
-                    <h3 class="problem-title" data-en="Built for wellness" data-es="Hecha para el bienestar">Hecha para el bienestar</h3>
-                    <p class="problem-text" data-en="Massages, therapies, healers — all in one place, all verified." data-es="Masajes, terapias, sanadores — todo en un solo lugar, todo verificado.">
-                        Masajes, terapias, sanadores — todo en un solo lugar, todo verificado.
-                    </p>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon">◈</div>
-                    <h3 class="problem-title" data-en="Personalized matches" data-es="Recomendaciones personalizadas">Recomendaciones personalizadas</h3>
-                    <p class="problem-text" data-en="Answer 6 questions. Get matched with verified therapists tailored just for you." data-es="Responde 6 preguntas. Obtén coincidencias con terapeutas verificados para ti.">
-                        Responde 6 preguntas. Obtén coincidencias con terapeutas verificados para ti.
-                    </p>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon">◊</div>
-                    <h3 class="problem-title" data-en="Book with confidence" data-es="Reserva con confianza">Reserva con confianza</h3>
-                    <p class="problem-text" data-en="Secure payments. Instant confirmation. Easy cancellation." data-es="Pagos seguros. Confirmación instantánea. Cancelación fácil. Transparencia total y tranquilidad.">
-                        Pagos seguros. Confirmación instantánea. Cancelación fácil. Transparencia total y tranquilidad.
-                    </p>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon">◉</div>
-                    <h3 class="problem-title" data-en="100% verified" data-es="100% verificado">100% verificado</h3>
-                    <p class="problem-text" data-en="Rigorous 5-dimension selection. Credentials confirmed. Reviews verified. Only the best." data-es="Selección rigurosa en 5 dimensiones. Credenciales confirmadas. Reseñas verificadas. Solo los mejores.">
-                        Selección rigurosa en 5 dimensiones. Credenciales confirmadas. Reseñas verificadas. Solo los mejores.
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
+                    <p class="problem-text"
+                       data-en="Rigorous curation. Confirmed credentials. Verified reviews. Only the best."
+                       data-es="Curaduría rigurosa. Credenciales confirmadas. Reseñas verificadas. Solo los mejores.">
+                        Rigorous curation. Confirmed credentials. Verified reviews. Only the best.
                     </p>
                 </div>
             </div>
@@ -710,46 +944,38 @@
 
     <div class="section-divider"></div>
 
+    <!-- ── HOW IT WORKS ── -->
     <section class="how-it-works-section">
         <div class="section-container">
-<<<<<<< HEAD
-            <h2 class="section-title-dark" data-en="How kura works" data-es="Cómo funciona kura">How kura works</h2>
+            <h2 class="section-title-dark"
+                data-en="How kura works" data-es="Cómo funciona kura">How kura works</h2>
 
-=======
-            <h2 class="section-title-dark" data-en="How kura works" data-es="Cómo funciona kura">Cómo funciona kura</h2>
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
             <div class="steps-grid">
                 <div class="step-item">
                     <div class="step-number">1</div>
                     <h3 class="step-title" data-en="Answer 6 questions" data-es="Responde 6 preguntas">Answer 6 questions</h3>
-                    <p class="step-text" data-en="Tell us your wellness goals, preferences, and any specific needs." data-es="Cuéntanos tus objetivos de bienestar, preferencias y necesidades específicas.">
+                    <p class="step-text"
+                       data-en="Tell us your wellness goals, preferences, and any specific needs."
+                       data-es="Cuéntanos tus objetivos de bienestar, preferencias y necesidades específicas.">
                         Tell us your wellness goals, preferences, and any specific needs.
                     </p>
                 </div>
-<<<<<<< HEAD
-
                 <div class="step-item">
                     <div class="step-number">2</div>
                     <h3 class="step-title" data-en="Get personalized matches" data-es="Obtén coincidencias personalizadas">Get personalized matches</h3>
-                    <p class="step-text" data-en="Browse curated, verified practitioners tailored to you." data-es="Explora profesionales curados y verificados adaptados a ti.">
+                    <p class="step-text"
+                       data-en="Browse curated, verified practitioners tailored to you."
+                       data-es="Explora profesionales curados y verificados adaptados a ti.">
                         Browse curated, verified practitioners tailored to you.
                     </p>
                 </div>
-
-=======
-                <div class="step-item">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title" data-en="Get personalized matches" data-es="Obtén coincidencias personalizadas">Obtén coincidencias personalizadas</h3>
-                    <p class="step-text" data-en="Browse selected, verified practitioners tailored to you." data-es="Explora profesionales seleccionados y verificados adaptados a ti.">
-                        Explora profesionales seleccionados y verificados adaptados a ti.
-                    </p>
-                </div>
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
                 <div class="step-item">
                     <div class="step-number">3</div>
-                    <h3 class="step-title" data-en="Book & pay in-app" data-es="Reserva y paga en la app">Book & pay in-app</h3>
-                    <p class="step-text" data-en="Secure booking and payment, all in one seamless experience." data-es="Reserva y pago seguros, todo en una experiencia fluida.">
-                        Secure booking and payment, all in one seamless experience.
+                    <h3 class="step-title" data-en="Book & confirm" data-es="Reserva y confirma">Book & confirm</h3>
+                    <p class="step-text"
+                       data-en="Request your booking and the therapist confirms. Secure and simple."
+                       data-es="Solicita tu reserva y el terapeuta confirma. Seguro y simple.">
+                        Request your booking and the therapist confirms. Secure and simple.
                     </p>
                 </div>
             </div>
@@ -757,83 +983,45 @@
             <div class="phone-mockups-container">
                 <div class="phone-frame">
                     <div class="phone-screen">
-<<<<<<< HEAD
-                        <h3 class="phone-header-title" data-en="Your matches" data-es="Tus coincidencias">Your matches</h3>
-                        <p style="font-size: 0.875rem; color: var(--forest-green); opacity: 0.6; margin-top: 0.25rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(28, 43, 37, 0.1);" data-en="5 verified practitioners in your area" data-es="5 profesionales verificados en tu área">
+                        <h3 class="phone-header-title"
+                            data-en="Your matches" data-es="Tus coincidencias">Your matches</h3>
+                        <p style="font-size:0.875rem;color:var(--ink-muted);margin-top:0.25rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid rgba(46,26,71,0.1);"
+                           data-en="5 verified practitioners in your area"
+                           data-es="5 profesionales verificados en tu área">
                             5 verified practitioners in your area
                         </p>
-                        <div style="font-size: 0.9rem; line-height: 1.4;">
-                            <div style="background: white; border: 1px solid rgba(28, 43, 37, 0.1); border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
-                                <div style="font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem;">Therapeutic Massage</div>
-                                <div style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;">Dr. Ana Herrera</div>
-                                <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;">
-                                    <span>⭐ 4.9 (156)</span>
-                                    <span>📍 Polanco, CDMX</span>
+                        <div style="font-size:0.9rem;line-height:1.4;">
+                            <div style="background:white;border:1px solid rgba(46,26,71,0.09);border-radius:12px;padding:1rem;margin-bottom:1rem;">
+                                <div style="font-family:var(--serif);font-weight:600;color:var(--amethyst-900);margin-bottom:0.25rem;">Therapeutic Massage</div>
+                                <div style="font-size:0.85rem;color:var(--ink-muted);margin-bottom:0.5rem;">Dr. Ana Herrera</div>
+                                <div style="display:flex;gap:0.5rem;font-size:0.8rem;color:var(--ink-muted);margin-bottom:0.5rem;">
+                                    <span>⭐ 4.9 (156)</span><span>📍 Polanco, CDMX</span>
                                 </div>
-                                <div style="display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;">
-                                    <span>⏱️ 90 min</span>
-                                    <span style="font-weight: 600;">$1,200 MXN</span>
-                                </div>
-                            </div>
-                            <div style="background: white; border: 1px solid rgba(28, 43, 37, 0.1); border-radius: 12px; padding: 1rem; margin-bottom: 1rem;">
-                                <div style="font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem;">Reflexology</div>
-                                <div style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;">María González</div>
-                                <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;">
-                                    <span>⭐ 5.0 (89)</span>
-                                    <span>📍 Tulum, Q.R.</span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;">
-                                    <span>⏱️ 60 min</span>
-                                    <span style="font-weight: 600;">$850 MXN</span>
+                                <div style="display:flex;justify-content:space-between;padding-top:0.5rem;border-top:1px solid rgba(46,26,71,0.07);font-size:0.85rem;">
+                                    <span style="color:var(--ink-muted);">⏱️ 90 min</span>
+                                    <span style="font-weight:600;color:var(--amethyst-900);">$1,200 MXN</span>
                                 </div>
                             </div>
-                            <div style="background: white; border: 1px solid rgba(28, 43, 37, 0.1); border-radius: 12px; padding: 1rem;">
-                                <div style="font-family: var(--serif); font-weight: 600; margin-bottom: 0.25rem;">Thai Massage</div>
-                                <div style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 0.5rem;">Sofía Ruiz</div>
-                                <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem;">
-                                    <span>⭐ 4.8 (134)</span>
-                                    <span>📍 Roma Norte, CDMX</span>
+                            <div style="background:white;border:1px solid rgba(46,26,71,0.09);border-radius:12px;padding:1rem;margin-bottom:1rem;">
+                                <div style="font-family:var(--serif);font-weight:600;color:var(--amethyst-900);margin-bottom:0.25rem;">Reflexology</div>
+                                <div style="font-size:0.85rem;color:var(--ink-muted);margin-bottom:0.5rem;">María González</div>
+                                <div style="display:flex;gap:0.5rem;font-size:0.8rem;color:var(--ink-muted);margin-bottom:0.5rem;">
+                                    <span>⭐ 5.0 (89)</span><span>📍 Tulum, Q.R.</span>
                                 </div>
-                                <div style="display: flex; justify-content: space-between; padding-top: 0.5rem; border-top: 1px solid rgba(28, 43, 37, 0.08); font-size: 0.85rem;">
-                                    <span>⏱️ 120 min</span>
-=======
-                        <h3 class="phone-header-title" data-en="Your matches" data-es="Tus coincidencias">Tus coincidencias</h3>
-                        <p style="font-size: 0.875rem; color: var(--amethyst); opacity: 0.6; margin-top: 0.25rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(46, 26, 71, 0.1);" data-en="5 verified practitioners in your area" data-es="5 profesionales verificados en tu área">
-                            5 profesionales verificados en tu área
-                        </p>
-                        <div style="font-size: 0.9rem; line-height: 1.4;">
-                            <div class="phone-inner-card">
-                                <div class="phone-inner-title">Therapeutic Massage</div>
-                                <div class="phone-inner-sub">Dr. Ana Herrera</div>
-                                <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--amethyst);">
-                                    <span>★ 4.9 (156)</span><span>▪ Polanco, CDMX</span>
-                                </div>
-                                <div class="phone-inner-row">
-                                    <span>◐ 90 min</span>
-                                    <span style="font-weight: 600;">$1,200 MXN</span>
+                                <div style="display:flex;justify-content:space-between;padding-top:0.5rem;border-top:1px solid rgba(46,26,71,0.07);font-size:0.85rem;">
+                                    <span style="color:var(--ink-muted);">⏱️ 60 min</span>
+                                    <span style="font-weight:600;color:var(--amethyst-900);">$850 MXN</span>
                                 </div>
                             </div>
-                            <div class="phone-inner-card">
-                                <div class="phone-inner-title">Reflexology</div>
-                                <div class="phone-inner-sub">María González</div>
-                                <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--amethyst);">
-                                    <span>★ 5.0 (89)</span><span>▪ Tulum, Q.R.</span>
+                            <div style="background:white;border:1px solid rgba(46,26,71,0.09);border-radius:12px;padding:1rem;">
+                                <div style="font-family:var(--serif);font-weight:600;color:var(--amethyst-900);margin-bottom:0.25rem;">Thai Massage</div>
+                                <div style="font-size:0.85rem;color:var(--ink-muted);margin-bottom:0.5rem;">Sofía Ruiz</div>
+                                <div style="display:flex;gap:0.5rem;font-size:0.8rem;color:var(--ink-muted);margin-bottom:0.5rem;">
+                                    <span>⭐ 4.8 (134)</span><span>📍 Roma Norte, CDMX</span>
                                 </div>
-                                <div class="phone-inner-row">
-                                    <span>◐ 60 min</span>
-                                    <span style="font-weight: 600;">$850 MXN</span>
-                                </div>
-                            </div>
-                            <div class="phone-inner-card">
-                                <div class="phone-inner-title">Thai Massage</div>
-                                <div class="phone-inner-sub">Sofía Ruiz</div>
-                                <div style="display: flex; gap: 0.5rem; font-size: 0.8rem; margin-bottom: 0.5rem; color: var(--amethyst);">
-                                    <span>★ 4.8 (134)</span><span>▪ Roma Norte, CDMX</span>
-                                </div>
-                                <div class="phone-inner-row">
-                                    <span>◐ 120 min</span>
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
-                                    <span style="font-weight: 600;">$1,400 MXN</span>
+                                <div style="display:flex;justify-content:space-between;padding-top:0.5rem;border-top:1px solid rgba(46,26,71,0.07);font-size:0.85rem;">
+                                    <span style="color:var(--ink-muted);">⏱️ 120 min</span>
+                                    <span style="font-weight:600;color:var(--amethyst-900);">$1,400 MXN</span>
                                 </div>
                             </div>
                         </div>
@@ -845,58 +1033,33 @@
                         <div class="booking-content">
                             <div class="booking-therapist">Dr. Ana Herrera</div>
                             <div class="booking-service">Therapeutic Massage</div>
-<<<<<<< HEAD
-
                             <div class="booking-detail">
                                 <div class="booking-label" data-en="Date" data-es="Fecha">Date</div>
                                 <div class="booking-value">Friday, May 16, 2025</div>
                             </div>
-
-=======
-                            <div class="booking-detail">
-                                <div class="booking-label" data-en="Date" data-es="Fecha">Fecha</div>
-                                <div class="booking-value">Viernes, 16 de mayo</div>
-                            </div>
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
                             <div class="booking-detail">
                                 <div class="booking-label" data-en="Time" data-es="Hora">Time</div>
                                 <div class="booking-value">3:00 PM</div>
                             </div>
-<<<<<<< HEAD
-
                             <div class="booking-detail">
                                 <div class="booking-label" data-en="Duration" data-es="Duración">Duration</div>
                                 <div class="booking-value">90 minutes</div>
                             </div>
-
-=======
-                            <div class="booking-detail">
-                                <div class="booking-label" data-en="Duration" data-es="Duración">Duración</div>
-                                <div class="booking-value">90 minutos</div>
-                            </div>
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
                             <div class="booking-detail">
                                 <div class="booking-label" data-en="Location" data-es="Ubicación">Location</div>
                                 <div class="booking-value">Polanco, CDMX</div>
                             </div>
-<<<<<<< HEAD
-
                             <div class="booking-price">$1,200 MXN</div>
                         </div>
-
-                        <button class="confirm-button" data-en="Confirm Booking" data-es="Confirmar Reserva">Confirm Booking</button>
-=======
-                            <div class="booking-price">$1,200 MXN</div>
-                        </div>
-                        <button class="confirm-button" data-en="Confirm Booking" data-es="Confirmar Reserva">Confirmar Reserva</button>
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
+                        <button class="confirm-button"
+                                data-en="Confirm Booking" data-es="Confirmar Reserva">Confirm Booking</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- IMAGE GALLERY STRIP -->
+    <!-- ── IMAGE GALLERY ── -->
     <section class="gallery-section">
         <div class="gallery-strip">
             <div class="gallery-item">
@@ -910,35 +1073,33 @@
             </div>
         </div>
         <div class="gallery-caption">
-            <p data-en="Curated. Verified. Transformative." data-es="Curado. Verificado. Transformador.">Curated. Verified. Transformative.</p>
+            <p data-en="Curated. Verified. Transformative."
+               data-es="Curado. Verificado. Transformador.">Curated. Verified. Transformative.</p>
         </div>
     </section>
 
     <div class="section-divider"></div>
 
-<<<<<<< HEAD
+    <!-- ── COMING SOON ── -->
     <section class="locations-section">
         <div class="section-container">
-            <h2 class="section-title" data-en="Coming Soon" data-es="Próximamente">
-                Coming Soon
-            </h2>
+            <h2 class="section-title"
+                data-en="Coming Soon" data-es="Próximamente">Coming Soon</h2>
             <div class="locations-grid">
                 <div class="location-card">
                     <div class="location-number">01</div>
                     <div class="location-name">Ciudad de México</div>
+                    <p class="location-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</p>
                 </div>
                 <div class="location-card">
                     <div class="location-number">02</div>
                     <div class="location-name">Tulum</div>
+                    <p class="location-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</p>
                 </div>
-                <a href="https://tepoz.kura.earth" target="_blank" rel="noopener noreferrer" class="location-card">
-                    <div class="location-number">03</div>
-                    <div class="location-name">Tepoztlán</div>
-                    <span class="location-badge" data-en="Available now" data-es="Ya disponible">Available now</span>
-                </a>
                 <div class="location-card">
-                    <div class="location-number">04</div>
+                    <div class="location-number">03</div>
                     <div class="location-name">San Miguel de Allende</div>
+                    <p class="location-soon" data-en="Coming soon" data-es="Próximamente">Coming soon</p>
                 </div>
             </div>
         </div>
@@ -946,18 +1107,23 @@
 
     <div class="section-divider"></div>
 
-=======
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
+    <!-- ── THERAPIST CTA ── -->
     <section class="therapist-cta-section">
         <div class="section-container">
             <div class="therapist-cta-content">
-                <h2 class="therapist-cta-title" data-en="Are you a wellness practitioner?" data-es="¿Eres un profesional del bienestar?">
+                <h2 class="therapist-cta-title"
+                    data-en="Are you a wellness practitioner?"
+                    data-es="¿Eres un profesional del bienestar?">
                     Are you a wellness practitioner?
                 </h2>
-                <p class="therapist-cta-text" data-en="Join kura as a Founding Therapist and be part of the future of wellness discovery." data-es="Únete a kura como Terapeuta Fundador y sé parte del futuro del descubrimiento del bienestar.">
-                    Join kura as a Founding Therapist and be part of the future of wellness discovery.
+                <p class="therapist-cta-text"
+                   data-en="Join kura as a Founding Therapist and be part of the future of wellness discovery in Mexico."
+                   data-es="Únete a kura como Terapeuta Fundador y sé parte del futuro del bienestar en México.">
+                    Join kura as a Founding Therapist and be part of the future of wellness discovery in Mexico.
                 </p>
-                <button class="therapist-cta-button" onclick="showTherapistToast()" data-en="Apply as Founding Therapist" data-es="Aplicar como Terapeuta Fundador">
+                <button class="therapist-cta-button" onclick="showTherapistToast()"
+                        data-en="Apply as Founding Therapist"
+                        data-es="Aplicar como Terapeuta Fundador">
                     Apply as Founding Therapist
                 </button>
             </div>
@@ -966,14 +1132,16 @@
 
     <div class="section-divider"></div>
 
+    <!-- ── WAITLIST ── -->
     <section class="waitlist-section" id="waitlist-section">
         <div class="section-container">
-<<<<<<< HEAD
-            <h2 class="waitlist-title" data-en="Be first." data-es="Sé el primero.">Be first.</h2>
-            <p class="waitlist-subtitle" data-en="kura launches in Mexico City and Tulum. Join the waitlist." data-es="kura se lanza en Ciudad de México y Tulum. Únete a la lista de espera.">
+            <h2 class="waitlist-title"
+                data-en="Be first." data-es="Sé el primero.">Be first.</h2>
+            <p class="waitlist-subtitle"
+               data-en="kura launches in Mexico City and Tulum. Join the waitlist."
+               data-es="kura se lanza en Ciudad de México y Tulum. Únete a la lista de espera.">
                 kura launches in Mexico City and Tulum. Join the waitlist.
             </p>
-
             <form class="waitlist-form" onsubmit="handleWaitlistSubmit(event)">
                 <input
                     type="email"
@@ -984,32 +1152,15 @@
                     data-placeholder-en="your@email.com"
                     data-placeholder-es="tu@email.com"
                 >
-=======
-            <h2 class="waitlist-title" data-en="Be first." data-es="Sé el primero.">Sé el primero.</h2>
-            <p class="waitlist-subtitle" data-en="kura is launching. Join the waitlist." data-es="kura está por lanzar. Únete a la lista de espera.">
-                kura está por lanzar. Únete a la lista de espera.
-            </p>
-            <form class="waitlist-form" onsubmit="handleWaitlistSubmit(event)">
-                <div class="form-row">
-                    <input type="text" class="waitlist-input" id="nombre-input" placeholder="Tu nombre" required data-placeholder-en="Your name" data-placeholder-es="Tu nombre">
-                    <input type="tel" class="waitlist-input" id="telefono-input" placeholder="+52 555 1234" required data-placeholder-en="+1 555 1234" data-placeholder-es="+52 555 1234">
-                </div>
-                <div class="form-row">
-                    <input type="text" class="waitlist-input" id="ciudad-input" placeholder="Ciudad" required data-placeholder-en="City" data-placeholder-es="Ciudad">
-                    <input type="text" class="waitlist-input" id="pais-input" placeholder="País" required data-placeholder-en="Country" data-placeholder-es="País">
-                </div>
-                <div class="form-row">
-                    <input type="email" class="waitlist-input" id="email-input" placeholder="tu@email.com" required data-placeholder-en="your@email.com" data-placeholder-es="tu@email.com">
-                    <input type="text" class="waitlist-input" id="terapias-input" placeholder="Ej: Masaje, Acupuntura" required data-placeholder-en="E.g: Massage, Acupuncture" data-placeholder-es="Ej: Masaje, Acupuntura">
-                </div>
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
-                <button type="submit" class="waitlist-button" id="waitlist-btn" data-en="Join Waitlist" data-es="Unirse a Lista de Espera">
+                <button type="submit" class="waitlist-button" id="waitlist-btn"
+                        data-en="Join Waitlist" data-es="Unirse">
                     Join Waitlist
                 </button>
             </form>
         </div>
     </section>
 
+    <!-- ── FOOTER ── -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">kura</div>
@@ -1017,7 +1168,6 @@
                 <a href="https://kura.earth" target="_blank" rel="noopener noreferrer">kura.earth</a>
                 <a href="https://tepoz.kura.earth" target="_blank" rel="noopener noreferrer">tepoz.kura.earth</a>
                 <a href="mailto:ivan@kura.earth">ivan@kura.earth</a>
-                <a href="tel:+525531914302">+52 55 3191 4302</a>
             </div>
         </div>
     </footer>
@@ -1025,7 +1175,6 @@
     <div class="toast" id="toast"></div>
 
     <script>
-<<<<<<< HEAD
         let currentLang = 'en';
 
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwdiMMNJ5iaOn-E0dbXYmnx9D8dzmnSwgLSJ3R0YwIe7MFw8ZLb9Jo4rd2vYSsqm4fS/exec';
@@ -1033,7 +1182,6 @@
         function toggleLanguage() {
             currentLang = currentLang === 'en' ? 'es' : 'en';
             document.getElementById('lang-toggle-text').textContent = currentLang === 'en' ? 'ES' : 'EN';
-
             document.querySelectorAll('[data-en]').forEach(el => {
                 const text = el.getAttribute('data-' + currentLang);
                 if (!text) return;
@@ -1042,19 +1190,6 @@
                 } else {
                     el.textContent = text;
                 }
-=======
-        let currentLang = 'es';
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx50nkaQLFrOa-l55uZJTU3N4TFZ_3z6gMAcM4EhIUAP33NWYYhoMFTgchIESsMNJri/exec';
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'es' ? 'en' : 'es';
-            document.getElementById('lang-toggle-text').textContent = currentLang === 'es' ? 'EN' : 'ES';
-            document.querySelectorAll('[data-en]').forEach(el => {
-                const text = el.getAttribute('data-' + currentLang);
-                if (!text) return;
-                if (el.tagName === 'INPUT') { el.placeholder = text; }
-                else { el.textContent = text; }
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
             });
         }
 
@@ -1066,36 +1201,25 @@
             const toast = document.getElementById('toast');
             toast.textContent = message;
             toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3000);
+            setTimeout(() => toast.classList.remove('show'), 3500);
         }
 
         function showTherapistToast() {
-<<<<<<< HEAD
-            const message = currentLang === 'en' ?
-                "Applications opening soon! We'll notify our waitlist first." :
-                "¡Aplicaciones abriendo pronto! Notificaremos primero a nuestra lista de espera.";
-=======
-            const message = currentLang === 'es'
-                ? "¡Aplicaciones abriendo pronto! Notificaremos primero a nuestra lista de espera."
-                : "Applications opening soon! We'll notify our waitlist first.";
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
+            const message = currentLang === 'en'
+                ? "Applications opening soon! We'll notify our waitlist first."
+                : "¡Aplicaciones abriendo pronto! Notificaremos primero a nuestra lista de espera.";
             showToast(message);
         }
 
         async function handleWaitlistSubmit(event) {
             event.preventDefault();
             const email = document.getElementById('email-input').value.trim();
-            const btn = document.getElementById('waitlist-btn');
+            const btn   = document.getElementById('waitlist-btn');
 
             if (!email || !email.includes('@') || !email.includes('.')) {
-<<<<<<< HEAD
-                const error = currentLang === 'en' ?
-                    'Please enter a valid email address' :
-                    'Por favor ingresa un correo electrónico válido';
-                showToast(error);
-=======
-                showToast(currentLang === 'es' ? 'Por favor ingresa un correo electrónico válido' : 'Please enter a valid email address');
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
+                showToast(currentLang === 'en'
+                    ? 'Please enter a valid email address'
+                    : 'Por favor ingresa un correo electrónico válido');
                 return;
             }
 
@@ -1105,35 +1229,20 @@
 
             try {
                 await fetch(GOOGLE_SCRIPT_URL, {
-<<<<<<< HEAD
                     method: 'POST',
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email: email, language: currentLang })
+                    body: JSON.stringify({ email, language: currentLang })
                 });
-
-                const success = currentLang === 'en' ?
-                    'Welcome to kura! Check your inbox for updates.' :
-                    '¡Bienvenido a kura! Revisa tu bandeja de entrada para actualizaciones.';
-                showToast(success);
+                showToast(currentLang === 'en'
+                    ? 'Welcome to kura! Check your inbox for updates.'
+                    : '¡Bienvenido a kura! Revisa tu bandeja de entrada.');
                 document.getElementById('email-input').value = '';
-
             } catch (error) {
                 console.error('Error:', error);
-                const errorMsg = currentLang === 'en' ?
-                    'Something went wrong. Please try again.' :
-                    'Algo salió mal. Por favor intenta de nuevo.';
-                showToast(errorMsg);
-=======
-                    method: 'POST', mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nombre, telefono, ciudad, pais, email, terapias, language: currentLang })
-                });
-                showToast(currentLang === 'es' ? '¡Bienvenido a kura! Revisa tu bandeja de entrada.' : 'Welcome to kura! Check your inbox.');
-                ['nombre','telefono','ciudad','pais','email','terapias'].forEach(id => document.getElementById(id+'-input').value = '');
-            } catch (error) {
-                showToast(currentLang === 'es' ? 'Algo salió mal. Por favor intenta de nuevo.' : 'Something went wrong. Please try again.');
->>>>>>> 776397702830094ddc9786654422f48e2e97e270
+                showToast(currentLang === 'en'
+                    ? 'Something went wrong. Please try again.'
+                    : 'Algo salió mal. Por favor intenta de nuevo.');
             } finally {
                 btn.textContent = originalText;
                 btn.disabled = false;
