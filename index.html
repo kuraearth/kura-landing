@@ -186,7 +186,12 @@
 
         /* ── TEPOZ CONCIERGE SPOTLIGHT ── */
         .tepoz-spotlight {
-            background-color: var(--amethyst-900);
+            background-image:
+                linear-gradient(to bottom, rgba(46, 26, 71, 0.70) 0%, rgba(46, 26, 71, 0.88) 100%),
+                url('images/tepoz-bg.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: scroll;
             padding: 7rem 2rem;
             position: relative;
             overflow: hidden;
@@ -197,8 +202,7 @@
             position: absolute;
             inset: 0;
             background-image:
-                radial-gradient(circle at 10% 50%, rgba(91, 61, 130, 0.4) 0%, transparent 60%),
-                radial-gradient(circle at 90% 50%, rgba(200, 169, 138, 0.08) 0%, transparent 55%);
+                radial-gradient(circle at 10% 50%, rgba(91, 61, 130, 0.25) 0%, transparent 60%);
             pointer-events: none;
         }
 
